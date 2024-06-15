@@ -1,0 +1,247 @@
+body {
+    font-weight: 500;
+    margin: 0;
+    min-height: 100vh;
+    background:  #FFFEF2;
+    /* Top half red, bottom half blue */
+}
+header{
+    height:45px;
+    background-color:rgb(224,23,23);
+    color: #f0f8ff;
+}
+header .menu-toggle{
+    display: none;
+}
+header * {
+    color:aliceblue;
+}
+ header .logo {
+    float: left;
+    height: inherit;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 3px;
+}
+header .logo img {
+    border-radius: 50%;
+}
+header ul{
+    float: left;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+header ul li{
+    display: inline-block;
+    position: relative;
+}
+header ul li a {
+    display: inline-block;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-decoration: none;
+}
+header ul li a:hover{
+    color: aliceblue;
+    background-color: rgb(149, 7, 7);
+    transition: 0.5s;
+    text-decoration: none;
+}
+header ul li ul{
+    display: none;
+    position: absolute;
+    background-color: rgb(224,23,23);
+    top: 50px;
+    right: 0px;
+    width: 150px;
+}
+header ul li:hover ul{
+    display: block;
+}
+header ul li ul li{
+    width: 100%;
+    z-index: 1000;
+}
+header ul li ul li a{
+    padding: 10px;
+    color: white;
+    background-color: rgb(224,23,23);
+    text-decoration: none;
+}
+.search-container {
+    
+    margin-top: 9px;
+    float: right;
+    height: inherit;
+}
+.search-container input{
+    color: #060457;
+    border-radius: 10px;
+    border:none;
+
+}
+.search-container button{
+    background-color: rgb(224,23,23);
+    border-radius: 10px;
+    border: none;
+
+}
+.logom{
+    text-align: center;
+}
+.logom img{
+    border: none;
+    height: 80%;
+    width: 80%;
+    border-radius: 50%;
+}
+.links {
+    text-align: center; /* Center-align inline-block elements */
+    padding: 20px;
+}
+.donate{
+    text-align: center;
+    vertical-align: top; /* Align top */
+    display: inline-block;
+    color: white;
+    background-color: #060457;
+    width:fit-content;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 8px;
+    margin-right: 20px;
+    border: none;
+    border-radius: 10px;
+}
+.give{
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    vertical-align: top; /* Align top */
+    display: inline-block;
+    color: white;
+    background-color: rgb(224,23,23);
+    width:fit-content;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 8px;
+    margin-left: 20px;
+}
+hr{
+    background-color: white !important;
+    margin-top: 0px;
+}
+.landform-container {
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.landform{
+    display: grid;
+    width:100%;
+    margin: 0 auto;
+}
+.landform input {
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: rgb(247, 240, 173);
+    color:#060457;
+    display: block;
+    margin-bottom: 20px;
+    padding: 5px;
+    border: none;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.landbutton{
+    margin-bottom: 20px;
+    color:#060457;
+    background-color: rgb(243, 237, 171);
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+footer {
+    width: 100%;
+    background-color: #060457;
+    color: white;
+    display: inline-table;
+    margin-bottom: 0%;
+}
+.footer-info{
+    display: flex;
+}
+.footer-contact{
+    margin-right: 200px;
+}
+.footer-info span{
+    display: block;
+    padding: 5px;
+}
+.line-for-footer{
+    margin: 0%;
+}
+.footer-bottom{
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0%;
+}
+footer a{
+    color: white;
+    text-decoration: none;
+}
+label{
+    color: white;
+    text-decoration: none;
+}
+.donor-form{
+    border-radius: 20px;
+    padding: 30px;
+    background-color: black;
+    width: 50%;
+    margin: 0 auto;
+}
+.donor-form input{
+    background-color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+textarea{
+    height: 150px;
+    border: none;
+    border-radius: 15px;
+    padding: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+.donor-form button{
+    height: 50px;
+    margin: 0 auto;
+    display: block;
+    border: none;
+    border-radius: 20px;
+    text-align: center;
+}
+.donorimg{
+width: 50%;
+margin: 0 auto;
+}
