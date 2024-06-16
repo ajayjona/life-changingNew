@@ -86,12 +86,13 @@ class ClothImage(models.Model):
         return self.item.name + 'image'
 
 class clothRequest(models.Model):
-    requester = models.ForeignKey(Cloth, on_delete=models.CASCADE)
+    requester = models.ForeignKey(Cloth, on_delete=models.CASCADE, related_name='requester_requests')
     requester_name = models.CharField(max_length=100, null=True, blank=True)
-    item = models.ForeignKey(Cloth, on_delete=models.CASCADE)
-    request_message = models.TextField
+    item = models.ForeignKey(Cloth, on_delete=models.CASCADE, related_name='item_requests')
+    request_message = models.TextField()
 
-    def str(self):
+    def __str__(self):
         return f"Request for {self.item.name} by {self.requester.username}"
+
 
 ## create forms for the models (frontend)
