@@ -59,7 +59,7 @@
         <label for="username">Username</label>
         <input type="text" placeholder="Your username..." id="username" name="td_name" required />
         <label for="contact">Contact</label>
-        <input type="text" placeholder="Your contact..." id="contact" name="td_contact" required />
+        <input type="number" placeholder="Your contact..." id="contact" name="td_contact" required />
         <label for="locaton">Location</label>
         <input type="text" placeholder="Your location..." id="location" name="td_location" required />
         <label for="td_item">Item</label>
@@ -69,13 +69,10 @@
           <option value="clothes">Clothes</option>
           <option value="food items">Food Items</option>
         </select>
+        <br>
+        <br>
         <label for="image">Upload Image:</label>
         <input type="file" name="td_photo_logo" id="td_photo_logo" accept="image/*" required />
-        {% comment %}
-        <div class="donorimg" style="text-align: center">
-          <input type="image" name="td_photo_logo" src="{% static 'images/japan.jpg' %}" style="border-radius: 50%; height: 120px; width: 120px" />
-        </div>
-        {% endcomment %}
         <label for="description">Description</label>
         <textarea name="td_description" id="description" cols="30" rows="10" placeholder="Description..."></textarea>
         <br />

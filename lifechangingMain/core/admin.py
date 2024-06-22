@@ -4,4 +4,3 @@ from .models import *
 # Register your models here.
 
 admin.site.register(T_donor)
-admin.site.register(Item)
