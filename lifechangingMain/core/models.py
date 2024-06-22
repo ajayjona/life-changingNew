@@ -45,13 +45,27 @@ class HowtoTrack(models.Model):
 
     def _str_(self):
         return self.name
+    
+
+class Item(models.Model):
+    CHOICES = (
+        ('select', 'Select'),
+        ('shoes', 'Shoes'),
+        ('clothes', 'Clothes'),
+        ('food items', 'Food Items'),
+    )
+    name = models.CharField(max_length=50, choices=CHOICES, default='select')
+    
+    def __str__(self):
+        return self.name
 
 class T_donor(models.Model):
-    td_howtocontact = models.ForeignKey(HowtoTrack,on_delete=models.CASCADE, null=True, blank=True)
     td_name = models.CharField(max_length=100)
     td_contact = models.IntegerField( blank=True, null=True)
     td_location = models.CharField(max_length=100, blank=True, null=True)
     td_photo_logo = models.ImageField( blank=True, null=True)
+    td_item = models.ForeignKey(Item, on_delete=models.CASCADE, null=True, blank=True)
+    td_description = models.TextField( blank=True, null=True)
 
     def _str_(self):
         return self.td_name
