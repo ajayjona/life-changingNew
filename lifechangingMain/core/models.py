@@ -66,32 +66,32 @@ class T_receiver(models.Model):
     def _str_(self):
         return self.tr_name
 
-class Items(models.Model):
-    pass
+# class Items(models.Model):
+#     pass
 
-class Cloth(models.Model):
-    name = models.CharField(max_length=100, null=True, blank=True)
-    description = models.TextField(max_length=100, null=True, blank=True)
-    quantity = models.IntegerField(null=True, blank=True)
-    is_available = models.BooleanField(default=True)
+# class Cloth(models.Model):
+#     name = models.CharField(max_length=100, null=True, blank=True)
+#     description = models.TextField(max_length=100, null=True, blank=True)
+#     quantity = models.IntegerField(null=True, blank=True)
+#     is_available = models.BooleanField(default=True)
 
-    def str(self):
-        return self.name
+#     def str(self):
+#         return self.name
 
-class ClothImage(models.Model):
-    item = models.ForeignKey(Cloth, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='images/')
+# class ClothImage(models.Model):
+#     item = models.ForeignKey(Cloth, on_delete=models.CASCADE)
+#     image = models.ImageField(upload_to='images/')
 
-    def str(self):
-        return self.item.name + 'image'
+#     def str(self):
+#         return self.item.name + 'image'
 
-class clothRequest(models.Model):
-    requester = models.ForeignKey(Cloth, on_delete=models.CASCADE)
-    requester_name = models.CharField(max_length=100, null=True, blank=True)
-    item = models.ForeignKey(Cloth, on_delete=models.CASCADE)
-    request_message = models.TextField
+# class clothRequest(models.Model):
+#     requester = models.ForeignKey(Cloth, on_delete=models.CASCADE)
+#     requester_name = models.CharField(max_length=100, null=True, blank=True)
+#     item = models.ForeignKey(Cloth, on_delete=models.CASCADE)
+#     request_message = models.TextField
 
-    def str(self):
-        return f"Request for {self.item.name} by {self.requester.username}"
+#     def str(self):
+#         return f"Request for {self.item.name} by {self.requester.username}"
 
 ## create forms for the models (frontend)
