@@ -1,103 +1,278 @@
 {% load static %}
-<!Doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>UPLIFT demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static "css/style.css" %}">
-  </head>
-  <body>
-    <header>
-        <div class="logo">
-          <img src="{% static "images/Ellipse_15.jpg" %}" alt="logo" height="40px">
-        </div>
-        <ul class="navli">
-          <li><a href="">Friends in need</a></li>
-          <li><a href="#">Contributors</a></li>
-          <li><a href="#">Status</a></li>
-          <li>
-            <a href="">
-                How it works
-            </a>
-            <ul>
-                <li><a href="">About</a></li>
-                <li><a href="">Success stories</a></li>
-                <li><a href="">Ranks</a></li>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="css/bootstrap-5.3.3-dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        
+ body{font-family:sans-serif;}
+        .logo { 
+            width: 20%; 
+        }
+
+        .logo-container {
+             display: flex;
+        }
+
+        .submit_button {
+            border: solid 2px  rgb(20, 138, 122);
+            color: white;
+            background-color: rgb(25, 161, 143);
+            /* background-color:  rgb(253, 181, 46);
+            border: solid 2px rgb(253, 181, 46); */
+            width:80%;
+            height: 32px;
+            font-size: 1rem;
+           
+            
+
+        }
+
+        .submit_button:hover {
+            background-color: orange;
+            cursor: pointer;
+        }
+
+        .search_form {
+            justify-content: end;
+        
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+        color: #000435;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {
+        background-color: #f9f9f9;
+        color: orangered;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content li {
+            text-decoration: none;
+            display: block;
+            color: #000435;
+        }
+
+        .dropdown-content li:hover {
+            color: orangered;
+        }
+
+        .contribution_button {
+            border: solid 2px  rgb(20, 138, 122);
+            color: white;
+            background-color: rgb(25, 161, 143);
+            padding: 5px 20px;
+            margin-right: 5px;
+        }
+
+        
+
+        .assistance_button {
+            background-color: rgb(25, 161, 143);
+            border: 2px solid rgb(20, 138, 122);
+            padding: 5px 20px;
+            color: white;
+        
+        }
+
+        
+        .nav-link {
+            text-decoration: none;
+            color: rgb(20, 138, 122);
+        }
+        .landing_general{display: grid; grid-template-columns: 0.8fr 8fr 10fr 0.8fr;padding: 50px; justify-content: center; height:100%;}
+
+        .footer {
+       
+        color:black;
+        text-align: center;
+        font-size: small;
+        position:fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .footer a {text-decoration: none;
+        color: black;
+        }
+        @media screen and (max-width: 600px) {
+            .search_form {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .icon {
+    float: right;
+    display: block;
+  }
+  
+        }
+    </style>
+</head>
+<body>
+    <header style="background-color:white; box-shadow: 2px 5px 10px #D3D3D3;">
+        <nav style=" padding:5px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; ">
+
+            <a href="http://"  > <img  src="Logopit_new.png"style="width:50%;" alt=""></a>
+    
+           <b>
+            <ul style=" list-style-type:none; display: inline-block; margin: 0; padding: 0; color: rgb(20, 138, 122); font-size: 16px;">
+                <li  style="display: inline-block; margin-right: 10px;"> <a class="nav-link" href="needs.html" target="_parent">Friends in need</a> </li>
+                <li  style="display: inline-block; margin-right: 10px;"> <a class="nav-link" href="{% url 'contributors' %}" target="_parent">Contributors</a> </li>
+                <li  style="display: inline-block; margin-right: 10px; " > <a class="nav-link" href="friends.html" target="_parent">Status</a> </li>
+                <li class="dropdown" style="display: inline-block; margin-right: 10px;">
+                    <span>How it works</span>
+                    <ul class="dropdown-content">
+                        <li> <a href=""> About</a> </li>
+                        <li> <a href=""> Success stories</a> </li>
+                        <li> <a href=""> Major Donors</a> </li>
+                    </ul>
+                </li>  
             </ul>
-        </li>
-        </ul>
+           </b> 
+    
+            <form action="POST" class="search_form" style="display: flex; align-items: center; background-color: white; box-shadow: 2px 5px 10px  #D3D3D3;;">
+                <input placeholder="search" style="height:24px;font-size:1rem;background: transparent; border: 0; outline: 0;  margin: 5px 20px;">
+                <button class="search_button" style="height: 40px;width: 40px; border: 0; cursor: pointer;"><img src="search-24.png" alt=""></button>
+            </form>
+        </nav>
     </header>
     
-    <br>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4" style="background-color: rgb(224,23,23); color: aliceblue;">
-                <br>
-                <p style="text-align: center; color: white;">Would you like to declare your<br>
-                    contribution, declare your need for<br>
-                    something or both ?
-                 </p>
-                <div class="logom">
-                    <img src="{% static "images/Ellipse_15.jpg" %}" alt="logo">
-                </div>
-                <br>
-                <p style="text-align: center;">Making Hope Tangible</p>
-            </div>
-            <div class="col-md-8" style="background-color: white;">
-                <br>
-                <div class="links">
-                    <button type="submit" class="donate">
-                       <h3 style="text-align: center;">GET CODE</h3> 
-                       <hr>
-                       <p style="text-align: center;">To declare your<br>
-                        contribution
-                       </p>
-                    </button>
-                    <button type="submit" class="give">
-                        <h3 style="text-align: center;">GET CODE</h3> 
-                        <hr>
-                        <p style="text-align: center;">To declare your<br>
-                         need for something
-                        </p>
-                    </button>
-                    <br><br>
-                </div>
-                <div class="landform-container">
-                    <form method="post" class="landform">
-                        <input type="text" placeholder="Username" name="username">
-                        <input type="number" placeholder="Code" name="code">
-                        <br>
-                        <div class="button-container">
-                        <button type="submit" name="landbutton" class="landbutton" >Submit</button>
+
+    <div class="landing_general">
+        
+        <div style="grid-column: 2;">
+            <div style="  padding-left: 50px; display: grid; grid-template-rows: 2fr 4fr 2fr;">
+                <div style="grid-row: 2;">
+                    <p style="color:rgb(20, 138, 122); font-size: 30px;"> <b>Making Hope Tangible</b> </p>
+                <p style="font-size: 16px; font-family: sans-serif;">Are you looking to contribute to society by sharing something or perhaps in need of assistance? </p>
+                <div style="display: flex;">
+                    <div class="dropdown">
+                        <button class="contribution_button">
+                          <b>CONTRIBUTE</b>
+                        </button>
+                        <div class="dropdown-content">
+                          <a href="{% url 'donor' %} ">As an individual</a>
+                          <a href="#">As a group</a>
                         </div>
-                    </form>
+                      </div>
+                      <div class="dropdown">
+                        <button class="assistance_button">
+                          <b>ASSISTANCE</b>
+                        </button>
+                        <div class="dropdown-content">
+                          <a href="#">As an individual</a>
+                          <a href="#">As a group</a>
+                        </div>
+                      </div>
                 </div>
+                </div>
+                
+                
             </div>
         </div>
-        <br>
+        
+        <div >
+            <div style="text-align: center; position: relative; padding: 5px; ">
+                <svg viewBox="0 0 900 600" preserveAspectRatio="none" style="position: absolute; top: 0; left: 0; width: 100%;">
+                    <path fill="#D0FFD0" fill-opacity="0.7" d="M 50 250 A 50 50 0 1 1 200 50 C 250 100 300 100 350 0 C 500 0 500 100 500 100 C 550 150 550 50 650 0 A 50 50 0 1 1 700 200 C 650 250 700 250 750 300 A 50 50 0 1 1 400 500 C 350 450 350 500 300 550 A 50 50 0 1 1 50 300 C 50 300 100 300 50 250"></path>
+                </svg> 
+
+                <svg viewBox="0 0 800 600" preserveAspectRatio="none" style="position: absolute; top: 0; left: 0; width: 100%;">
+                    <path fill="rgb(20, 138, 122)" fill-opacity="1" d="M 600 400 C 600 350 700 400 750 350 C 750 350 800 350 750 400 C 650 450 600 400 600 400 "></path>
+                </svg> 
+
+                <!-- <svg viewBox="0 0 800 600" preserveAspectRatio="none" style="position: absolute; top: 0; left: 0; width: 100%;">
+                    <path fill="rgb(20, 138, 122)" fill-opacity="0.7" d="M 350 400 C 350 350 450 450 400 400 C 450 450 450 400 450 450 C 400 400 400 500 350 400   "></path>
+                </svg> -->
+
+                <img src="{% static 'images/cloth sharing.png' %}" style="position: absolute; ; width: 100%; height: auto; max-width: 100%; display: block; background-size: cover; background-position: center; background-repeat: no-repeat;">
+
+                <!-- <svg viewBox="0 0 800 600" preserveAspectRatio="none" style="position: absolute; top: 0; left: 0; width: 100%;">
+                    <path fill="rgb(20, 138, 122)" fill-opacity="0.5" d="M 50 400 C 0 400 50 350 150 350 C 200 350 250 400 150 400 C 100 400 150 400 50 400   "></path>
+                </svg> -->
+
+                 
+                
+                <!-- <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script><dotlottie-player src="https://lottie.host/2967c70c-c180-4cb0-b2bb-0a1cdb66412f/VXGle6Lt8d.json" background="transparent" speed="1" style="width: 100%; height: 300px; position: absolute;" direction="1" playMode="normal" loop autoplay></dotlottie-player>
+             -->
+
+
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, 50%); z-index: 1; width: 37%; text-align: center;  margin: solid 2px white; padding-right: 7%; display: grid; grid-template-rows:  8fr 1fr;">
+                    <div style=" background-color:rgba(255, 255, 255, 0.7); border-radius: 15px; border: solid 2px white; box-shadow: 2px 5px 10px #D3D3D3;">
+                        <p style="font-size:15px; background-color:rgba(255, 255, 255, 0.8) ;"><b>Do you have an item uploaded already? Track progress</b></p>
+                        <form class="track_form" action="POST" style="text-align: center; padding-bottom: 10px;">
+                            <input style="display: inline-block; margin-bottom: 10px; height: 25px; width: 80%; box-shadow: 2px 5px 10px #D3D3D3; border: 2px solid rgb(20, 138, 122);" placeholder="Username">
+                            <input style="display: inline-block; margin-bottom: 10px; height: 25px; width: 80%; box-shadow: 2px 5px 10px #D3D3D3; border: 2px solid rgb(20, 138, 122);" placeholder="Code">
+                            <button class="submit_button"  style="text-align: center;" type="submit">Submit</button>
+                        </form>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </div>    
+        
     </div>
-    <footer>
-        <div class="footer-info">
-            <div class="footer-contact">
-                <p>Contact us on:</p>
-                <span><i class="fas fa-phone"></i>&nbsp;256-45646-3544</span>
-                <span><i class="fas fa-envelope"></i>&nbsp; info uplift@gmail.com</span>
-            </div>
-            <div class="footer-visit">
-                <p>Visit us on:</p>
-                <a href=""><span><i class="fab fa-facebook-square"></i>&nbsp;Facebook</span></a>
-                <a href=""><span><i class="fab fa-twitter-square"></i>&nbsp;Twitter</span></a>
-                <a href=""><span><i class="fab fa-instagram-square"></i>&nbsp;Instagram</span></a>
-            </div>
+     
+    <footer class="footer" style="background-color: #F0F0F0; text-align:center; display: flex; justify-content: space-between; "> 
+        <p style="margin-left: 5px;"> © 2024 Copyright: Uplift</p> 
+        <div >
+            <a href="#"  > About | </a>
+            <a href="#"> FAQ |</a>
+            <a  href="#"> Privacy Policy | </a>
+            <a  href="#"> Contact | </a>
+            <a href="#"> Contribute |</a>
+            <a href="#"> Assistance </a>
         </div>
-        <hr class="line-for-footer">
-        <div class="footer-bottom">
-            | &copy; GAME CHANGERS / UPLIFT
+
+        <div style="margin-right: 15px;">
+            <a  href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="h-6 w-6">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+            </a>
+            <a  href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="h-6 w-6">
+                    <path
+                        d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                    </path>
+                </svg>
+            </a>
         </div>
-    </footer>
-    <script src="https://kit.fontawesome.com/950b207f71.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </body>
+
+    </footer> 
+
+</body>
 </html>
