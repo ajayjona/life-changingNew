@@ -34,3 +34,16 @@ def t_receiver(request):
     else:
         form = T_receiverForm()
         return render(request, 't_receiver.html', {'form': form})
+
+
+def p_receiver(request):
+    if request.method == 'POST':
+        form = P_receiverForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('p_receiver'))
+        else:
+            return render(request, 'p_receiver.html', {'form': form})
+    else:
+        form = P_receiverForm()
+        return render(request, 'p_receiver.html', {'form': form})
