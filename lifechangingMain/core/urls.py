@@ -5,4 +5,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('contributors/', views.contributors, name='contributors'),
     path('donor/', views.donor, name='donor'),
+
+    #t_receiver urls
+    path('t_receiver/', views.t_receiver, name='t_receiver'),
 ]
