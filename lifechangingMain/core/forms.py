@@ -1,6 +1,50 @@
 from django import forms
 from django.core.exceptions import ValidationError
-from .models import T_receiver, HowtoTrack
+from .models import *
+
+class T_donorForm(forms.ModelForm):
+    class Meta:
+        model = T_donor
+        fields = "__all__"
+
+    def clean_td_name(self):
+        td_name = self.cleaned_data.get('td_name')
+        if not td_name:
+            raise ValidationError("Name is required.")
+        if not td_name.isalpha():
+            raise ValidationError("Name should only contain alphabetic characters.")
+        return td_name
+    
+    def clean_td_contact(self):
+        td_contact = self.cleaned_data.get('td_contact')
+        if td_contact is not None:
+            if td_contact < 0:
+                raise ValidationError("Contact number must be a positive integer.")
+        return td_contact
+    
+
+class P_donorForm(forms.ModelForm):
+    class Meta:
+        model = P_donor
+        fields = "__all__"
+
+
+    def clean_D_name(self):
+        D_name = self.cleaned_data.get('D_name')
+        if not D_name:
+            raise ValidationError("Name is required.")
+        if not D_name.isalpha():
+            raise ValidationError("Name should only contain alphabetic characters.")
+        return D_name
+    
+    def clean_D_contact(self):
+        D_contact = self.cleaned_data.get('D_contact')
+        if D_contact is not None:
+            if D_contact < 0:
+                raise ValidationError("Contact number must be a positive integer.")
+        return D_contact
+    
+
 
 class T_receiverForm(forms.ModelForm):
     class Meta:

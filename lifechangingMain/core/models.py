@@ -19,7 +19,7 @@ class P_donor(models.Model):
     D_contact = models.IntegerField( blank=True, null=True)
     D_description = models.CharField(max_length=600, blank=True, null=True)
 
-    def _str_(self):
+    def __str__(self):
         return self.D_name
 
 # this model represents a permanent reciever and what is required of them
@@ -33,7 +33,7 @@ class P_reciever(models.Model):
     R_description = models.CharField(max_length=600, blank=True, null=True)
     R_location = models.CharField(max_length=100, blank=True, null=True)
 
-    def _str_(self):
+    def __str__(self):
         return self.R_name
 
 
@@ -43,7 +43,7 @@ class HowtoTrack(models.Model):
     email = models.CharField(max_length=50, blank=True, null=True)
     telephone = models.IntegerField(blank=True, null=True)
 
-    def _str_(self):
+    def __str__(self):
         return self.name
 
 class T_donor(models.Model):
@@ -53,7 +53,7 @@ class T_donor(models.Model):
     td_location = models.CharField(max_length=100, blank=True, null=True)
     td_photo_logo = models.ImageField( blank=True, null=True)
 
-    def _str_(self):
+    def __str__(self):
         return self.td_name
 
 class T_receiver(models.Model):
