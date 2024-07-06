@@ -1,0 +1,304 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="content">
+    <div class="about-container">
+        <div class="about-text">
+            <h1>About Us</h1>
+            <p>Welcome to Uplift, a transformative donation platform dedicated to empowering positive change.
+                We're passionate about connecting generous individuals with causes they care about, and fostering a
+                community dedicated to making a real difference in the world.</p>
+        </div>
+        <div class="about-video">
+            <video controls>
+                <source src="{% static 'images/upl.mp4' %}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+</section>
+
+<section class="founder-message">
+    <div class="message-container">
+        <div class="message-image">
+            <img src="{% static 'images/images.png' %}" alt="Founder Image">
+        </div>
+        <div class="message-text">
+            <h2>Message from the Founder</h2>
+            <p>"Witnessing firsthand the need for a more direct path to impactful giving, I founded Uplift to
+                bridge the gap between generous donors and those facing challenges. We act as a transparent
+                facilitator, ensuring every contribution reaches those who truly need it, empowering both sides to build a
+                brighter future, together."</p>
+        </div>
+    </div>
+</section>
+
+<section class="vision-mission">
+    <div class="card vision-card">
+        <div class="card-content">
+            <div class="vision-image">
+                <img src="{% static 'images/visiion.png' %}" alt="Vision Image">
+            </div>
+            <div class="vision-text">
+                <h2>Our Vision</h2>
+                <p>We envision a world where every person has the opportunity to thrive, regardless of their
+                    circumstances, and where acts of kindness and generosity create positive change on a global
+                    scale.</p>
+            </div>
+        </div>
+    </div>
+    <div class="card mission-card">
+        <div class="card-content">
+            <div class="mission-text">
+                <h2>Our Mission</h2>
+                <p>Our mission is to empower individuals and communities by facilitating meaningful connections
+                    between donors and those in need. We aim to create a transparent and impactful giving experience
+                    that drives positive change and fosters a sense of unity and compassion.</p>
+            </div>
+            <div class="mission-image">
+                <img src="{% static 'images/mission.png' %}" alt="Mission Image">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="organization-members">
+    <h2>Our Organization Members</h2>
+
+    <!-- Owl Carousel for displaying all members -->
+    <div class="member-carousel owl-carousel">
+        <div class="member-card">
+            <img src="{% static 'images/cartoon.jpg' %}" alt="Ozzy">
+            <div class="member-info">
+                <h3>Ozzy</h3>
+                <p>Founder & CEO</p>
+            </div>
+        </div>
+
+        <div class="member-card">
+            <img src="{% static 'images/cartoon.jpg' %}" alt="Vanie">
+            <div class="member-info">
+                <h3>Vanie</h3>
+                <p>Co-Founder & CTO</p>
+            </div>
+        </div>
+
+        <div class="member-card">
+            <img src="{% static 'images/cartoon.jpg' %}" alt="Sandra">
+            <div class="member-info">
+                <h3>Sandra</h3>
+                <p>Co-Founder & COO</p>
+            </div>
+        </div>
+
+        <div class="member-card">
+            <img src="{% static 'images/cartoon.jpg' %}" alt="Resty">
+            <div class="member-info">
+                <h3>Resty</h3>
+                <p>Co-Founder & CFO</p>
+            </div>
+        </div>
+
+        <div class="member-card">
+            <img src="{% static 'images/cartoon.jpg' %}" alt="Matende">
+            <div class="member-info">
+                <h3>Matende</h3>
+                <p>Founder & CEO</p>
+            </div>
+        </div>
+
+        <!-- Add more member cards as needed -->
+        <div class="member-card">
+            <img src="{% static 'images/cartoon.jpg' %}" alt="Member 6">
+            <div class="member-info">
+                <h3>Member 6</h3>
+                <p>Role</p>
+            </div>
+        </div>
+
+        <div class="member-card">
+            <img src="{% static 'images/cartoon.jpg' %}" alt="Member 7">
+            <div class="member-info">
+                <h3>Member 7</h3>
+                <p>Role</p>
+            </div>
+        </div>
+
+        <!-- Repeat for all members -->
+    </div>
+</section>
+
+
+<section class="how-we-work">
+    <div class="container">
+        <h2 style="text-align: center;">How We Work</h2>
+        <div class="work-steps">
+            <div class="work-step">
+                <img src="#" alt="Step 1">
+                <h3>Step 1</h3>
+                <p>Identify pressing community needs and disadvantaged individuals.</p>
+            </div>
+            <div class="work-step">
+                <img src="#" alt="Step 2">
+                <h3>Step 2</h3>
+                <p>Connect donors with specific causes and individuals through our platform.</p>
+            </div>
+            <div class="work-step">
+                <img src="#" alt="Step 3">
+                <h3>Step 3</h3>
+                <p>Ensure transparent and direct funding, facilitating impactful contributions.</p>
+            </div>
+            <div class="work-step">
+                <img src="#" alt="Step 4">
+                <h3>Step 4</h3>
+                <p>Monitor and report on the outcomes and impacts of donations made.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="why-donate">
+    <div class="container">
+        <h2 style="text-align: center;">Why We Donate</h2>
+        <div class="reasons">
+            <div class="reason">
+                <img src="{% static 'images/impact.jpg' %}" alt="Reason 1">
+                <h3>Impact</h3>
+                <p>We believe in creating meaningful impact by addressing real-life challenges and fostering
+                    sustainable change.</p>
+            </div>
+            <div class="reason">
+                <img src="{% static 'images/empowerment.jpg' %}" alt="Reason 2">
+                <h3>Empowerment</h3>
+                <p>Donations empower individuals and communities, providing opportunities for growth and
+                    development.</p>
+            </div>
+            <div class="reason">
+                <img src="{% static 'images/community.jpg' %}" alt="Reason 3">
+                <h3>Community</h3>
+                <p>By donating, we strengthen communities, encourage social responsibility, and inspire others to
+                    give back.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="success-stories">
+    <div class="container">
+        <div class="sec-title">
+            <h2>Our Success Stories</h2>
+            <p>What our Donors and Recipients say</p>
+        </div>
+        <div class="success-content owl-carousel">
+            <div class="single-success">
+                <p>John, a bright and ambitious student from a low-income family, always dreamed of becoming a
+                    doctor. However, financial constraints made it difficult for him to pursue higher education.
+                    Through the Uplift app, John connected with a generous donor who believed in his potential. The
+                    donor funded his tuition fees and provided additional support for his textbooks and living
+                    expenses. Today, John is in his second year of medical school, on his way to fulfilling his
+                    dream of serving his community as a healthcare professiona</p>
+                <div class="client-info">
+                    <div class="client-pic">
+                        <a href="#">
+                            <img src="{% static 'images/me.png' %}" alt="" height="100" width="50">
+                        </a>
+                    </div>
+                    <div class="client-details">
+                        <h6>Remo</h6>
+                        <span>Donor</span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-success">
+                <p>Maria, a single mother of two, struggled to make ends meet. She had a talent for crafting
+                    beautiful handmade jewelry but lacked the resources to start her own business. Using the Uplift
+                    app, Maria was able to connect with a donor who provided the initial capital she needed to buy
+                    materials and set up an online store. Within a year, Maria's business flourished, and she now
+                    employs other women from her community, creating a ripple effect of empowerment and economic
+                    independence.</p>
+                <div class="client-info">
+                    <div class="client-pic">
+                        <a href="#">
+                            <img src="{% static 'images/wo.png' %}" alt="" height="100" width="50">
+                        </a>
+                    </div>
+                    <div class="client-details">
+                        <h6>Jane</h6>
+                        <span>Recipient</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="single-success">
+                <p>The COVID-19 pandemic hit small businesses hard, and many were on the brink of closure. One such
+                    business was a local bakery owned by Sarah. Through the Uplift app, Sarah found a donor who
+                    provided financial assistance and business mentorship. With this support, Sarah was able to keep
+                    her bakery open, retain her staff, and even expand her product line. Today, Sarah’s bakery is
+                    thriving, serving the community with delicious baked goods and bringing smiles to many faces.
+                </p>
+                <div class="client-info">
+                    <div class="client-pic">
+                        <a href="#">
+                            <img src="{% static 'images/me.png' %}" alt="" height="100" width="50">
+                        </a>
+                    </div>
+                    <div class="client-details">
+                        <h6>David</h6>
+                        <span>Donor</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="single-success">
+                <p>When Ahmed was diagnosed with a rare medical condition, his family was devastated by the high
+                    cost of treatment. They turned to the Uplift app, where they connected with multiple donors
+                    willing to contribute towards Ahmed’s medical expenses. The collective support covered his
+                    surgery and post-operative care. Ahmed is now recovering well, and his family is grateful for
+                    the timely intervention that saved his life. This story is a testament to the power of
+                    collective giving and compassion.</p>
+                <div class="client-info">
+                    <div class="client-pic">
+                        <a href="#">
+                            <img src="{% static 'images/Wo.png' %}" alt="" height="100" width="50">
+                        </a>
+                    </div>
+                    <div class="client-details">
+                        <h6>Ritah</h6>
+                        <span>Donor</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="single-success">
+                <p>In a remote village, the only school was in dire need of renovation. The students lacked basic
+                    facilities such as proper classrooms and educational materials. Through the Uplift app, a group
+                    of donors came together to fund the renovation project. They provided new desks, chairs, and
+                    learning materials, creating a conducive environment for education. The school now stands as a
+                    beacon of hope, with improved facilities and motivated students who are eager to learn and
+                    succeed.</p>
+                <div class="client-info">
+                    <div class="client-pic">
+                        <a href="#">
+                            <img src="{% static 'images/me.png' %}" alt="" height="100" width="50">
+                        </a>
+                    </div>
+                    <div class="client-details">
+                        <h6>Tonny</h6>
+                        <span>Recipient</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+{% endblock %}

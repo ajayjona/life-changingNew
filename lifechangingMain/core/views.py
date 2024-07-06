@@ -7,10 +7,12 @@ from . forms import *
 def index(request):
     return render (request, 'index.html')
 
+def about(request):
+    return render (request, 'about.html')
+
 def contributors(request):
     return render (request, 'contributors.html')
-
-def T_donor(request):
+def t_donor(request):
     if request.method == 'POST': 
         form = T_donorForm(request.POST, request.FILES)  
         if form.is_valid():  
@@ -23,17 +25,17 @@ def T_donor(request):
     return render(request, 'T_donor.html', {'form': form}) 
 
 
-def P_donor(request):
+def p_donor(request):
     if request.method == 'POST': 
-        form = P_donorForm(request.POST, request.FILES)  
-        if form.is_valid():  
-            form.save()  
+        groupform = P_donorForm(request.POST, request.FILES)  
+        if groupform.is_valid():  
+            groupform.save()  
             return HttpResponse('form submitted successfully')  
         else:
-            return render(request, 'P_donor.html', {'form': form})  
+            return render(request, 'P_donor.html', {'groupform': groupform})  
     else:
-        form = P_donorForm()  
-    return render(request, 'P_donor.html', {'form': form}) 
+        groupform = P_donorForm()  
+    return render(request, 'P_donor.html', {'groupform': groupform}) 
 
 def t_receiver(request):
     if request.method == 'POST':

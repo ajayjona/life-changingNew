@@ -11,13 +11,23 @@ class P_category(models.Model):
 
 # this model represents a permanent donor and what is required of them
 class P_donor(models.Model):
-    D_category = models.ForeignKey(P_category,on_delete=models.CASCADE, null=True, blank=True)
+    GROUP_CHOICES =(
+    ('select', 'Select'),
+    ('money', 'Money'),
+    ('clothes', 'Clothes'),
+    ('food items', 'Food Items'),
+    ('others', 'Others'),
+    )
+    D_item = models.CharField(max_length=50,choices= GROUP_CHOICES, null=True, blank=True)
     D_name = models.CharField(max_length=100, null = True, blank = True)
+    D_item_name = models.CharField(max_length=100, null = True, blank = True)
+    D_email = models.EmailField(max_length=100, null = True, blank = True)
     D_location = models.CharField(max_length=100, blank=True, null=True)
-    D_regno = models.IntegerField( blank=True, null=True)
-    D_photo_logo = models.ImageField( blank=True, null=True)
+    D_verify = models.CharField( max_length=200,blank=True, null=True)
+    D_photo_logo = models.ImageField(upload_to='images/', blank=True, null=True)
     D_contact = models.IntegerField( blank=True, null=True)
     D_description = models.CharField(max_length=600, blank=True, null=True)
+    D_date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
     def __str__(self):
         return self.D_name
@@ -47,11 +57,22 @@ class HowtoTrack(models.Model):
         return self.name
 
 class T_donor(models.Model):
-    td_howtocontact = models.ForeignKey(HowtoTrack,on_delete=models.CASCADE, null=True, blank=True)
+    CHOICES = (
+        ('select', 'Select'),
+        ('money', 'Money'),
+        ('clothes', 'Clothes'),
+        ('food items', 'Food Items'),
+        ('others', 'Others'),
+    )
     td_name = models.CharField(max_length=100)
     td_contact = models.IntegerField( blank=True, null=True)
+    td_email = models.CharField(max_length=100, blank=True, null=True)
     td_location = models.CharField(max_length=100, blank=True, null=True)
-    td_photo_logo = models.ImageField( blank=True, null=True)
+    td_item = models.CharField(max_length=50, choices=CHOICES, null=True, blank=True)
+    td_item_name = models.CharField(max_length=100,null=True, blank=True)
+    td_photo_logo = models.ImageField(upload_to='images/',blank=True, null=True)
+    td_description = models.TextField( blank=True, null=True)
+    td_date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
     def __str__(self):
         return self.td_name
