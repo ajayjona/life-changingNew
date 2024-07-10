@@ -7,21 +7,35 @@ from . forms import *
 def index(request):
     return render (request, 'index.html')
 
+def about(request):
+    return render (request, 'about.html')
+
 def contributors(request):
     return render (request, 'contributors.html')
+def t_donor(request):
+    if request.method == 'POST': 
+        form = T_donorForm(request.POST, request.FILES)  
+        if form.is_valid():  
+            form.save()  
+            return HttpResponse('form submitted successfully')  
+        else:
+            return render(request, 'T_donor.html', {'form': form})  
+    else:
+        form = T_donorForm()  
+    return render(request, 'T_donor.html', {'form': form}) 
 
-def donor(request):
-    return render (request, 'donor.html')
-    # if request.method == 'POST': 
-    #     form = T_donorForm(request.POST, request.FILES)  
-    #     if form.is_valid():  
-    #         form.save()  
-    #         return HttpResponse('form submitted successfully')  
-    #     else:
-    #         return render(request, 'donor.html', {'form': form})  
-    # else:
-    #     form = T_donorForm()  
-    # return render(request, 'donor.html', {'form': form}) 
+
+def p_donor(request):
+    if request.method == 'POST': 
+        groupform = P_donorForm(request.POST, request.FILES)  
+        if groupform.is_valid():  
+            groupform.save()  
+            return HttpResponse('form submitted successfully')  
+        else:
+            return render(request, 'P_donor.html', {'groupform': groupform})  
+    else:
+        groupform = P_donorForm()  
+    return render(request, 'P_donor.html', {'groupform': groupform}) 
 
 def t_receiver(request):
     if request.method == 'POST':
