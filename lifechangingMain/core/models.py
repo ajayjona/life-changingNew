@@ -33,15 +33,15 @@ class P_donor(models.Model):
         return self.D_name
 
 # this model represents a permanent reciever and what is required of them
-class P_reciever(models.Model):
-    R_category = models.ForeignKey(P_category,on_delete=models.CASCADE, null=True, blank=True)
-    R_name = models.CharField(max_length=100, null = True, blank = True)
-    R_location = models.CharField(max_length=100, blank=True, null=True)
-    R_regno = models.IntegerField( blank=True, null=True)
-    R_photo_logo = models.ImageField( blank=True, null=True)
-    R_contact = models.IntegerField( blank=True, null=True)
-    R_description = models.CharField(max_length=600, blank=True, null=True)
-    R_location = models.CharField(max_length=100, blank=True, null=True)
+class P_receiver(models.Model):
+    pr_category = models.ForeignKey(P_category,on_delete=models.CASCADE, null=True, blank=True)
+    pr_name = models.CharField(max_length=100, null = True, blank = True)
+    pr_location = models.CharField(max_length=100, blank=True, null=True)
+    pr_regno = models.IntegerField( blank=True, null=True)
+    pr_photo_logo = models.ImageField( blank=True, null=True)
+    pr_contact = models.IntegerField( blank=True, null=True)
+    pr_description = models.CharField(max_length=600, blank=True, null=True)
+    pr_location = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__(self):
         return self.R_name

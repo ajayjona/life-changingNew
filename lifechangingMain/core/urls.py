@@ -11,9 +11,10 @@ urlpatterns = [
 
     #t_receiver urls
     path('t_receiver/', views.t_receiver, name='t_receiver'),
-
+    path('p_receiver/', views.p_receiver, name='p_receiver'),
     path('about/', views.about, name='about'),
 ]
 
 if settings.DEBUG:
   urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
