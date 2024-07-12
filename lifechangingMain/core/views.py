@@ -52,12 +52,12 @@ def t_receiver(request):
 
 def p_receiver(request):
     if request.method == 'POST':
-        form = P_receiverForm(request.POST, request.FILES)
+        form = P_receiver(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('p_receiver'))
         else:
             return render(request, 'p_receiver.html', {'form': form})
     else:
-        form = P_receiverForm()
+        form = P_receiver()
         return render(request, 'p_receiver.html', {'form': form})

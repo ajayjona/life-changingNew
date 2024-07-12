@@ -1,17 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Receiver form</title>
-</head>
-<body>
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="Submit">
-        <a href="{% url 'index' %}">Go back to Home</a>
-
-    </form>
-</body>
-</html>
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <center>
+        <div>
+            <h2>For Assistance!</h2>
+            <p>Please fill out this form.</p>
+            <form action="" method="POST" style="color: >
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" value="Submit">
+                <a href="{% url 'index' %}">Go back to Home</a>
+            </form>
+        </div>
+    </center>
+{% endblock  %}
