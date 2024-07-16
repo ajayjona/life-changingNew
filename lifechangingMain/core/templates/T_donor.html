@@ -1,178 +1,73 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block style %}
-<style>
-  /* .donor-form input{
-background-color: white;
-border: none;
-border-radius: 15px;
-padding: 5px;
-margin-bottom: 15px;
-text-align: center;
-width: 100%;
-display: block;
-}
-textarea{
-height: 150px;
-border: none;
-border-radius: 15px;
-padding: 5px;
-margin-bottom: 15px;
-text-align: center;
-width: 100%;
-display: block;
-}
-.donor-form button{
-height: 50px;
-margin: 0 auto;
-display: block;
-border: none;
-border-radius: 20px;
-text-align: center;
-}
-.donorimg{
-width: 50%;
-margin: 0 auto;
-}  */
-  body{background-color:#f9f9f9 ;}
-  .general-div{display: grid;grid-template-columns: 1fr 2fr 1fr;}
-  form{width: 100%; justify-content: center; align-items: center; background-color:white ; grid-column: 2;
-    }
-  .donor-form{ display: grid;grid-template-columns: 1fr 1fr; column-gap: 10px; width: 100%; background-color: white;}
-  .content-div{ display: grid;grid-template-columns: 1fr;}
-  .input-container {
-position: relative;
-margin-bottom: 10px;
-}
-
-.input-container input {
-padding: 10px;
-width: 100%;
-border: 1px solid #ccc;
-border-radius: 5px;
-font-size: 16px;
-}
-.input-container textarea {
-padding: 10px;
-width: 100%;
-border: 1px solid #ccc;
-border-radius: 5px;
-font-size: 16px;
-}
-.input-container select {
-padding: 10px;
-width: 100%;
-border: 1px solid #ccc;
-border-radius: 5px;
-font-size: 16px;
-margin: 0px 0px 15px;
-}
-
-.input-container label {
-position: absolute;
-left: 15px;
-top: 50%;
-transform: translateY(-50%);
-background-color: #fff;
-padding: 0 5px;
-font-size: 14px;
-color: #666;
-pointer-events: none;
-transition: top 0.3s ease, font-size 0.3s ease, color 0.3s ease;
-display: none;
-}
-
-.input-container input:focus + label,
-.input-container input:not(:placeholder-shown) + label {
-top: 0;
-font-size: 12px;
-color: #333;
-display: block;
-}
-
-
-
-
-</style>
-{% endblock %}
 {% block content %}
-
-<div class="general-div">
-  <p style="text-align: center; grid-column: 2;">Register here and receive a tracking code</p>
-
-      <form method="post" action="/T_donor/"  enctype="multipart/form-data">
-        {% csrf_token %}
-
-        {% if form.errors %}
-          <ul>
-            {% for field, errors in form.errors.items %}
-              {% for error in errors %}
-                <li style="color: aliceblue;">{{ field }}: {{ error }}</li>
-              {% endfor %}
-            {% endfor %}
-          </ul>
-        {% endif %}
-
-        <div class="donor-form" >
-
-          <div class="content-div">
-          
-            <div class="input-container">
-              <input type="text" placeholder="Your username..." id="username" name="td_name" required />
-              <label for="username">Username</label>
+    <br>
+        <div class="form-wrapper">
+          <p style="text-align: center; grid-column: 2;">Register here and receive a tracking code</p>
+            <div class="form-container">
+                <form method="POST" action="/T_donor/"  enctype="multipart/form-data">
+                  {% csrf_token %}
+                  {% if form.errors %}
+                  <ul>
+                    {% for field, errors in form.errors.items %}
+                      {% for error in errors %}
+                        <li style="color: red;">{{ field }}: {{ error }}</li>
+                      {% endfor %}
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+                    <div class="form-row">
+                        <div class="form-group">
+                          <input type="text" id="name" name="td_name" placeholder=" " required>
+                          <label for="name">Username:</label>
+                        </div>
+                        <div class="form-group">
+                          <input type="tel" id="contact" name="td_contact" placeholder=" " required>
+                          <label for="contact">Contact:</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                          <input type="email" id="email" name="td_email" placeholder=" ">
+                          <label for="email">Email for notifications(optional):</label>
+                        </div>
+                        <div class="form-group input-container">
+                          <input type="text" id="location" name="td_location" placeholder=" " required>
+                          <label for="location">Location:</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <select name="td_item" id="item_cat" required>
+                                <option value="" disabled selected>--Select Item Category--</option>
+                                <option value="money">Money</option>
+                                <option value="clothes">Clothes</option>
+                                <option value="food items">Food</option>
+                                <option value="others">Others</option>
+                            </select>
+                            <label for="item_cat">Select Item Category</label>
+                        </div>
+                        <div class="form-group">
+                          <input type="text" id="item_name" name="td_item_name" placeholder=" " required>
+                          <label for="item_name">Item name:</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                          <input type="file" id="photo" name="td_photo_logo" placeholder=" "  accept="image/*" style="border: 2px solid rgb(20, 138, 122);" required>
+                          <label for="photo">Upload item photo:</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                          <textarea name="text" id="describe" name="td_description" placeholder=" " required></textarea>
+                          <label for="describe">Description:</label>
+                        </div>
+                    </div>
+                    <div class="form-group" style=" display: flex; justify-content: center;">
+                        <input type="submit" value="Submit" style="border: solid 2px  rgb(20, 138, 122);">
+                    </div>
+                </form>
             </div>
-            <div class="input-container">
-              <input type="number" placeholder="Your contact..." id="contact" name="td_contact" required />
-              <label for="contact">Contact</label>
-            </div>
-            <div class="input-container">
-              <input type="email" placeholder="Your email..." id="email" name="td_email" />
-              <label for="email">Do you want to be contacted by email as well? (optional)</label>
-            </div>
-          
-
-             
-          </div>
-
-          <div class="content-div">
-
-            <div class="input-container">
-              <input type="text" placeholder="Your location..." id="location" name="td_location" required />
-              <label for="locaton">Location</label>
-            </div>
-
-            <div class="input-container">
-              <select name="td_item" id="td_item">
-                <option value="" disabled selected>--Select--</option>
-                <option value="money">Money</option>
-                <option value="clothes">Clothes</option>
-                <option value="food items">Food</option>
-                <option value="others">Others</option>
-              </select>
-              <label for="td_item">Item Categories</label>
-            </div>
-
-            <div class="input-container">
-              <input type="text" placeholder="Item name..." id="item_name" name="td_item_name" required />
-              <label for="item_name">Item name</label>
-            </div>
-            
-          </div>
-
         </div>
-
-        <div class="input-container">
-          <input type="file" name="td_photo_logo" id="td_photo_logo" accept="image/*" required />
-          <label for="image">Upload Image:</label>
-        </div>
-
-        <div class="input-container">
-          <textarea name="td_description" id="description" cols="30" rows="10" placeholder="Description..."></textarea>
-          <label for="description">Description</label>
-        </div>
-        
-        <button type="submit">Receive code</button>
-      </form>
-    </div>
-    <br />
 {% endblock %}

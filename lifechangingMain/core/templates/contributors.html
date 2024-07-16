@@ -1,23 +1,29 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<br> 
+<br>
+<br>
+<br>
 <br>
 <div class="general-grid">
-  <div class="thumbnail-preview">
-    <div class="thumbnail-row">
-      <img class="pic-1" src="{{item.td_photo_logo.url}}">
-    </div>
-    <div class="uplift-info-grid">
-      <div class="chanel-pic">
-        <img class="profile" src="{% static 'images/anonymous.png' %}">
+  {% for item in t_contrib %}
+    <div class="thumbnail-preview">
+      <div class="thumbnail-row">
+        <img class="pic-1" src="{{item.td_photo_logo.url}}">
       </div>
-      <div class="uplift-info">
-        <p class="uplift-title">Item Category: {{item.td_item}}</p>
-        <p>Username: {{item.td_name}}</p>
-        <p>Item name: {{item.td_item_name}}</p>
-        <p class="uplift-stats">3.4M views | {{item.td_date}}</p>
-      </div>  
+      <div class="uplift-info-grid">
+        <div class="chanel-pic">
+          <img class="profile" src="{% static 'images/anonymous.png' %}">
+        </div>
+        <div class="uplift-info">
+          <p class="uplift-title">Item : {{item.td_item_name}}</p>
+          <p>Username: {{item.td_name}}</p>
+          <p class="uplift-stats">Issue date: {{item.td_date}}</p>
+          <a href="#" style="color: blue;">Read more...</a>
+        </div>  
+      </div>
     </div>
-  </div>
+  {% endfor %}
 </div>
 {% endblock %}

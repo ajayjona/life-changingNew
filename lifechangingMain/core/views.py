@@ -11,13 +11,21 @@ def about(request):
     return render (request, 'about.html')
 
 def contributors(request):
-    return render (request, 'contributors.html')
+    t_contrib = T_donor.objects.all()
+    p_contrib = P_donor.objects.all()
+    return render (request, 'contributors.html',{'t_contrib':t_contrib ,'p_contrib':p_contrib} )
+
+def friends(request):
+    t_friend = T_receiver.objects.all()
+    p_friend = P_receiver.objects.all()
+    return render (request, 'friends.html',{'t_friend':t_friend ,'p_friend':p_friend} )
+
 def t_donor(request):
     if request.method == 'POST': 
         form = T_donorForm(request.POST, request.FILES)  
         if form.is_valid():  
             form.save()  
-            return HttpResponse('form submitted successfully')  
+            return HttpResponseRedirect(reverse('contributors')) 
         else:
             return render(request, 'T_donor.html', {'form': form})  
     else:
@@ -30,7 +38,7 @@ def p_donor(request):
         groupform = P_donorForm(request.POST, request.FILES)  
         if groupform.is_valid():  
             groupform.save()  
-            return HttpResponse('form submitted successfully')  
+            return HttpResponseRedirect(reverse('contributors')) 
         else:
             return render(request, 'P_donor.html', {'groupform': groupform})  
     else:
@@ -39,25 +47,24 @@ def p_donor(request):
 
 def t_receiver(request):
     if request.method == 'POST':
-        form = T_receiverForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse('t_receiver'))
+        t_receiverform = T_receiverForm(request.POST, request.FILES)
+        if t_receiverform.is_valid():
+            t_receiverform.save()
+            return HttpResponseRedirect(reverse('friends'))
         else:
-            return render(request, 't_receiver.html', {'form': form})
+            return render(request, 't_receiver.html', {'t_receiverform': t_receiverform})
     else:
-        form = T_receiverForm()
-        return render(request, 't_receiver.html', {'form': form})
-
-
+        t_receiverform = T_receiverForm()
+        return render(request, 't_receiver.html', {'t_receiverform': t_receiverform})
+    
 def p_receiver(request):
     if request.method == 'POST':
-        form = P_receiverForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse('p_receiver'))
+        p_receiverform = P_receiverForm(request.POST, request.FILES)
+        if p_receiverform.is_valid():
+            p_receiverform.save()
+            return HttpResponseRedirect(reverse('friends'))
         else:
-            return render(request, 'p_receiver.html', {'form': form})
+            return render(request, 'p_receiver.html', {'p_receiverform': p_receiverform})
     else:
-        form = P_receiverForm()
-        return render(request, 'p_receiver.html', {'form': form})
+        p_receiverform = P_receiverForm()
+        return render(request, 'p_receiver.html', {'p_receiverform': p_receiverform})

@@ -1,51 +1,77 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
-    <div class="container">
-      <br />
-      <p style="text-align: center">Register here and receive a tracking code</p>
-
-      <form method="post" action="/P_donor/" class="donor-form" enctype="multipart/form-data">
-        {% csrf_token %}
-
-        {% if groupform.errors %}
-          <ul>
-            {% for field, errors in groupform.errors.items %}
-              {% for error in errors %}
-                <li style="color: aliceblue;">{{ field }}: {{ error }}</li>
-              {% endfor %}
-            {% endfor %}
-          </ul>
-        {% endif %}
-
-        <label for="username">Company/Group name</label>
-        <input type="text" placeholder="Company/Group name..." id="username" name="D_name" required />
-        <label for="contact">Contact</label>
-        <input type="number" placeholder="Contact..." id="contact" name="D_contact" required />
-        <label for="email">Email</label>
-        <input type="email" placeholder="Email..." id="email" name="D_email" required/>
-        <label for="verification">Verification details</label>
-        <input type="text" placeholder="Verificaton info..." id="verification" name="D_verify" required />
-        <label for="locaton">Location</label>
-        <input type="text" placeholder="Location..." id="location" name="D_location" required />
-        <label for="D_item">Item Categories</label>
-        <select name="D_item" id="D_item">
-          <option value="" disabled selected>--Select--</option>
-          <option value="money">Money</option>
-          <option value="clothes">Clothes</option>
-          <option value="food items">Food</option>
-          <option value="others">Others</option>
-        </select>
-        <label for="item_name">Item name</label>
-        <input type="text" placeholder="Item name..." id="item_name" name="D_item_name" required />
-        <label for="image">Upload Image:</label>
-        <input type="file" name="D_photo_logo" id="image" accept="image/*" required />
-        <label for="description">Description</label>
-        <textarea name="D_description" id="description" cols="30" rows="10" placeholder="Description..."></textarea>
-        <br />
-        <button type="submit">Receive code</button>
-      </form>
-    </div>
-    <br />
+    <br>
+        <div class="form-wrapper">
+          <p style="text-align: center; grid-column: 2;">Register here and receive a tracking code</p>
+            <div class="form-container">
+                <form method="POST" action="/P_donor/"  enctype="multipart/form-data">
+                  {% csrf_token %}
+                  {% if groupform.errors %}
+                  <ul>
+                    {% for field, errors in groupform.errors.items %}
+                      {% for error in errors %}
+                        <li style="color: red;">{{ field }}: {{ error }}</li>
+                      {% endfor %}
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+                    <div class="form-row">
+                        <div class="form-group">
+                          <input type="text" id="username" name="D_name" placeholder=" " required>
+                          <label for="username">Company/Group name:</label>
+                        </div>
+                        <div class="form-group">
+                          <input type="tel" id="contact" name="D_contact" placeholder=" " required>
+                          <label for="contact">Contact:</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                          <input type="email" id="email" name="D_email" placeholder=" " required>
+                          <label for="email">Email:</label>
+                        </div>
+                        <div class="form-group input-container">
+                          <input type="text" id="verification" name="D_verify" placeholder=" " required>
+                          <label for="verification">Verification details:</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group input-container">
+                          <input type="text" id="location" name="D_location" placeholder=" " requuired>
+                          <label for="location">Location:</label>
+                        </div>
+                        <div class="form-group input-container">
+                          <select name="D_item" id="item_cat">
+                            <option value="" disabled selected>--Select Item Category--</option>
+                            <option value="money">Money</option>
+                            <option value="clothes">Clothes</option>
+                            <option value="food items">Food</option>
+                            <option value="others">Others</option>
+                          </select>
+                          <label for="item_cat">Select Item Category</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                          <input type="text" id="item_name" name="D_item_name" placeholder=" " required>
+                          <label for="item_name">Item name:</label>
+                        </div>
+                        <div class="form-group">
+                          <input type="file" id="image" name="D_photo_logo" placeholder=" " accept="image/*" style="border: solid 2px  rgb(20, 138, 122);" required>
+                          <label for="image">Upload item photo:</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <textarea name="D_description" id="describe" name="phone" placeholder=" " required></textarea>
+                            <label for="describe">Description:</label>
+                        </div>
+                    </div>
+                    <div class="form-group" style=" display: flex; justify-content: center;">
+                        <input type="submit" value="Submit" style="border: solid 2px  rgb(20, 138, 122);">
+                    </div>
+                </form>
+            </div>
+        </div>
 {% endblock %}

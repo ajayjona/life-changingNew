@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<br> 
+<br>
+<br>
+<br>
+<br>
+<div class="general-grid">
+  {% for group in p_friend %}
+  <div class="thumbnail-preview">
+    <div class="thumbnail-row">
+      <img class="pic-1" src="{{group.R_photo_logo.url}}">
+    </div>
+    <div class="uplift-info-grid">
+      <div class="chanel-pic">
+        <img class="profile" src="{% static 'images/anonymous.png' %}">
+      </div>
+      <div class="uplift-info">
+        <p class="uplift-title">Item : {{group.R_item_name}}</p>
+        <p>Username: {{group.R_name}}</p>
+        <p class="uplift-stats">Issue date: {{group.R_date}}</p>
+        <a href="#" style="color: blue;">Read more...</a>
+      </div>  
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

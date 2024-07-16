@@ -90,59 +90,52 @@ class T_receiverForm(forms.ModelForm):
         
         return cleaned_data
     
-class P_receiver(object):
+class P_receiverForm(forms.ModelForm):
     class Meta:
-        model: P_receiver
+        model = P_receiver
         fields = "__all__"
-
     
-    def clean_pr_howtocontact(self):
-        pr_howtocontact = self.cleaned_data.get('pr_howtocontact')
-        if pr_howtocontact and not HowtoTrack.objects.filter(id=pr_howtocontact.id).exists():
-            raise ValidationError("Selected contact method is invalid.")
-        return pr_howtocontact
-    
-    def clean_pr_name(self):
-        pr_name = self.cleaned_data.get('pr_name')
-        if not pr_name:
+    def clean_R_name(self):
+        R_name = self.cleaned_data.get('R_name')
+        if not R_name:
             raise ValidationError("Name is required.")
-        if not pr_name.isalpha():
+        if not R_name.isalpha():
             raise ValidationError("Name should only contain alphabetic characters.")
-        return pr_name
+        return R_name
     
-    def clean_pr_contact(self):
-        pr_contact = self.cleaned_data.get('pr_contact')
-        if pr_contact is not None:
-            if pr_contact < 0:
+    def clean_R_contact(self):
+        R_contact = self.cleaned_data.get('R_contact')
+        if R_contact is not None:
+            if R_contact < 0:
                 raise ValidationError("Contact number must be a positive integer.")
-        return pr_contact
+        return R_contact
     
-    def clean_pr_photo_logo(self):
-        pr_photo_logo = self.cleaned_data.get('pr_photo_logo')
-        if pr_photo_logo and not pr_photo_logo.name.endswith(('.jpg', '.jpeg', '.png')):
+    def clean_R_photo_logo(self):
+        R_photo_logo = self.cleaned_data.get('R_photo_logo')
+        if R_photo_logo and not R_photo_logo.name.endswith(('.jpg', '.jpeg', '.png')):
             raise ValidationError("Photo logo must be a .jpg, .jpeg, or .png file.")
-        return pr_photo_logo
+        return R_photo_logo
     
-    def clean_pr_location(self):
-        pr_location = self.cleaned_data.get('pr_location')
-        if pr_location and not pr_location.isalpha():
+    def clean_R_location(self):
+        R_location = self.cleaned_data.get('R_location')
+        if R_location and not R_location.isalpha():
             raise ValidationError("Location should only contain alphabetic characters.")
-        return pr_location
+        return R_location
     
-    def clean_pr_description(self):
-        pr_description = self.cleaned_data.get('pr_description')
-        if pr_description and len(pr_description) > 250:
+    def clean_R_description(self):
+        R_description = self.cleaned_data.get('R_description')
+        if R_description and len(R_description) > 250:
             raise ValidationError("Description should not exceed 600 characters.")
-        return pr_description
+        return R_description
     
     def clean(self):
         cleaned_data = super().clean()
-        pr_name = cleaned_data.get("pr_name")
-        pr_contact = cleaned_data.get("pr_contact")
-        pr_location = cleaned_data.get("pr_location")
-        pr_description = cleaned_data.get("pr_description")
+        R_name = cleaned_data.get("R_name")
+        R_contact = cleaned_data.get("R_contact")
+        R_location = cleaned_data.get("R_location")
+        R_description = cleaned_data.get("R_description")
 
-        if pr_name and not pr_location:
+        if R_name and not R_location:
             self.add_error('tr_location', "Location is required when name is provided.")
         
         return cleaned_data
