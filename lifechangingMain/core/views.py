@@ -59,12 +59,16 @@ def t_receiver(request):
     
 def p_receiver(request):
     if request.method == 'POST':
+
         p_receiverform = P_receiverForm(request.POST, request.FILES)
         if p_receiverform.is_valid():
             p_receiverform.save()
             return HttpResponseRedirect(reverse('friends'))
+
         else:
             return render(request, 'p_receiver.html', {'p_receiverform': p_receiverform})
     else:
+
         p_receiverform = P_receiverForm()
         return render(request, 'p_receiver.html', {'p_receiverform': p_receiverform})
+
