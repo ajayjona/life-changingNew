@@ -34,14 +34,24 @@ class P_donor(models.Model):
 
 # this model represents a permanent reciever and what is required of them
 class P_receiver(models.Model):
-    pr_category = models.ForeignKey(P_category,on_delete=models.CASCADE, null=True, blank=True)
-    pr_name = models.CharField(max_length=100, null = True, blank = True)
-    pr_location = models.CharField(max_length=100, blank=True, null=True)
-    pr_regno = models.IntegerField( blank=True, null=True)
-    pr_photo_logo = models.ImageField( blank=True, null=True)
-    pr_contact = models.IntegerField( blank=True, null=True)
-    pr_description = models.CharField(max_length=600, blank=True, null=True)
-    pr_location = models.CharField(max_length=100, blank=True, null=True)
+    PGROUP_CHOICES =(
+    ('select', 'Select'),
+    ('money', 'Money'),
+    ('clothes', 'Clothes'),
+    ('food items', 'Food Items'),
+    ('others', 'Others'),
+    )
+    R_name = models.CharField(max_length=100, null = True, blank = True)
+    R_item_name = models.CharField(max_length=100, null = True, blank = True)
+    R_email = models.EmailField(max_length=100, null = True, blank = True)
+    R_location = models.CharField(max_length=100, blank=True, null=True)
+    R_reginfo = models.CharField( max_length=100,blank=True, null=True)
+    R_item = models.CharField(max_length=50, choices= PGROUP_CHOICES, null=True, blank=True)
+    R_photo_logo = models.ImageField(upload_to='images/', blank=True, null=True)
+    R_contact = models.IntegerField( blank=True, null=True)
+    R_description = models.CharField(max_length=600, blank=True, null=True)
+    R_location = models.CharField(max_length=100, blank=True, null=True)
+    R_date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
     def __str__(self):
         return self.R_name
@@ -78,11 +88,22 @@ class T_donor(models.Model):
         return self.td_name
 
 class T_receiver(models.Model):
-    tr_howtocontact = models.ForeignKey(HowtoTrack,on_delete=models.CASCADE, null=True, blank=True)
-    tr_name = models.CharField(max_length=100)
+    TCHOICES = (
+        ('select', 'Select'),
+        ('money', 'Money'),
+        ('clothes', 'Clothes'),
+        ('food items', 'Food Items'),
+        ('others', 'Others'),
+    )
+    tr_name = models.CharField(max_length=100,blank=True, null=True)
+    tr_email = models.CharField(max_length=100, blank=True, null=True)
     tr_contact = models.IntegerField( blank=True, null=True)
+    tr_item = models.CharField(max_length=50, choices=TCHOICES, null=True, blank=True)
+    tr_item_name = models.CharField(max_length=100,null=True, blank=True)
     tr_location = models.CharField(max_length=100, blank=True, null=True)
-    tr_photo_logo = models.ImageField( blank=True, null=True)
+    tr_photo_logo = models.ImageField(upload_to='images/', blank=True, null=True)
+    tr_description = models.TextField(max_length=600, blank=True, null=True)
+    tr_date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
     def _str_(self):
         return self.tr_name

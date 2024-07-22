@@ -295,6 +295,57 @@
         </div>
     </div>
 </section>
+<script>
+    $(document).ready(function () {
+        $(".member-carousel").owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            dots: true,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 2
+                },
+                1000: {
+                    items: 4
+                }
+            }
+        });
+    });
+</script>
+
+
+
+<!-- success stories carousel -->
+<script type="text/javascript">
+$(document).ready(function () {
+    $('.owl-carousel').owlCarousel({
+        loop: true,
+        nav: false,
+        dots: true,
+        margin: 50,
+        autoplay: true,
+        autoplayTimeout: 4000,
+        smartSpeed: 800,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 1
+            },
+            1000: {
+                items: 2
+            }
+        }
+    });
+});
+</script>
 
 
 

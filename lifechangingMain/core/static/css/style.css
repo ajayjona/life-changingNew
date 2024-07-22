@@ -4,6 +4,7 @@ body {
     margin: 0;
     min-height: 100vh;
     background:  white;
+
 }
 /* desinated for index page and nav bar */
 .logo { 
@@ -11,7 +12,7 @@ body {
 }
 
 .logo-container {
-     display: flex;
+    display: flex;
 }
 
 .submit_button {
@@ -35,7 +36,10 @@ body {
 
 .search_form {
     justify-content: end;
-
+    display: flex; 
+    align-items: center; 
+    background-color: white; 
+    box-shadow: 2px 5px 10px  #D3D3D3;;
 }
 
 .dropdown {
@@ -97,7 +101,13 @@ color: orangered;
 
 }
 
-
+header{
+    background-color:white; 
+    box-shadow: 2px 5px 10px #D3D3D3; 
+    width: 100%;
+    position: fixed;
+    z-index: 1000;
+ }
 .nav-link {
     text-decoration: none;
     color: rgb(20, 138, 122);
@@ -119,7 +129,7 @@ footer{
     display: flex;
 }
 .footer-section1{
-    margin-left: 100px;
+    margin-left: 50px;
 }
 .footer-section2 h3{
     margin-top: 50px;
@@ -166,8 +176,88 @@ i {
 }
 
 /* end of css designated for footer */
+.form-wrapper {
+    margin: 0 auto; /* Center horizontally */
+    width: 80%;
+    max-width: 800px; /* Adjust the max-width as needed */
+    padding: 40px 20px; /* Padding to add space around the form */
+    box-sizing: border-box;
+    margin-top: 50px; /* Adjust this value to position the form near the top */
+}
 
-label{
+.form-container {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.form-row .form-group {
+    flex: 1;
+    margin-right: 20px;
+    position: relative; /* Position relative for label positioning */
+}
+
+.form-row .form-group:last-child {
+    margin-right: 0;
+}
+
+.form-group label {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    padding: 0 5px;
+    font-size: 14px;
+    color: #666;
+    pointer-events: none;
+    transition: top 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+}
+
+.form-group input:focus + label, .form-group select:focus + label, .form-group textarea:focus + label,
+.form-group input:not(:placeholder-shown) + label, .form-group select:not(:placeholder-shown) + label, .form-group textarea:not(:placeholder-shown) + label {
+    top: 0;
+    font-size: 12px;
+    color: #333;
+}
+
+.form-group input, .form-group select {
+    height: 50px;
+    width: 100%;
+    padding: 13px;
+    box-sizing: border-box;
+    font-size: 16px;
+    border: solid 2px  rgb(20, 138, 122);
+}
+textarea{
+    width: 100%;
+    height: 70px;
+    border: solid 2px rgb(20, 138, 122);
+}
+.form-group input[type="submit"] {
+    margin: 0 auto;
+    width: 40%;
+    background-color: rgb(25, 161, 143);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 15px 30px;
+    font-size: 18px;
+}
+
+.form-group input[type="submit"]:hover {
+  background-color: rgb(20, 138, 122);
+}
+/*label{
     display: block;
     color: #f0f8ff;
 }
@@ -187,7 +277,6 @@ label{
     margin-bottom: 15px;
     text-align: center;
     width: 100%;
-    display: block;
 }
 .donot-form select{
     display: block;
@@ -213,7 +302,7 @@ textarea{
 .donorimg{
 width: 50%;
 margin: 0 auto;
-}
+}*/
 /* for contributors page */
 .uplift-info-grid{
     display: grid;
