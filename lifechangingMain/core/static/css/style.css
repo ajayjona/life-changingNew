@@ -333,9 +333,11 @@ textarea{
 width: 50%;
 margin: 0 auto;
 }*/
+
+
 /* for contributors page */
 
-.more {
+/* .more {
     display: none;
 }
 
@@ -398,7 +400,7 @@ margin: 0 auto;
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 16px;
     row-gap: 40px;
-}
+} */
 
 /* end for contributors page */
 
@@ -486,7 +488,7 @@ margin: 0 auto;
     color: white;
 }
 
-.card {
+.card1 {
     background: rgba(0, 0, 0, 0.4);
     /* Semi-transparent background */
     border-radius: 10px;
@@ -499,7 +501,7 @@ margin: 0 auto;
     /* Initial shadow */
 }
 
-.card:hover {
+.card1:hover {
     transform: translateY(-5px);
     /* Lift the card slightly on hover */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
