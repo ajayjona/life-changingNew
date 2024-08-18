@@ -56,7 +56,7 @@ def t_receiver(request):
     else:
         t_receiverform = T_receiverForm()
         return render(request, 't_receiver.html', {'t_receiverform': t_receiverform})
-    
+
 def p_receiver(request):
     if request.method == 'POST':
 
@@ -72,3 +72,33 @@ def p_receiver(request):
         p_receiverform = P_receiverForm()
         return render(request, 'p_receiver.html', {'p_receiverform': p_receiverform})
 
+
+def dashboard(request):
+    if request.user.is_authenticated:
+        donations = Donation.objects.filter(user=request.user)
+        uplifts = Uplift.objects.filter(user=request.user)
+    else:
+        donations = []
+        uplifts = []
+
+    # Example: Placeholder for page views count or set a default value
+    page_views = ...  # Logic to get page views count, or default to 0 if anonymous
+
+    context = {
+        "donations": donations,
+        "uplifts": uplifts,
+        "page_views": page_views,
+    }
+    return render(request, "dashboard.html", context)
+
+
+def add_uplift(request):
+    if request.method == "POST":
+        title = request.POST.get("title")
+        description = request.POST.get("description")
+
+        uplift = Uplift(user=request.user, title=title, description=description)
+        uplift.save()
+        return redirect("dashboard")
+
+    return render(request, "add_uplift.html")
