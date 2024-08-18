@@ -4,17 +4,17 @@ from . import views
 from django.urls import path
 
 urlpatterns = [
-  path('', views.index, name='index'),
-  path('contributors/', views.contributors, name='contributors'),
-  path('T_donor/', views.t_donor, name='t_donor'),
-  path('P_donor/', views.p_donor, name='p_donor'),
-
-  #t_receiver urls
-  path('t_receiver/', views.t_receiver, name='t_receiver'),
-  path('p_receiver/', views.p_receiver, name='p_receiver'),
-  path('friends/', views.friends, name='friends'),
-
-  path('about/', views.about, name='about'),
+    path("", views.index, name="index"),
+    path("contributors/", views.contributors, name="contributors"),
+    path("T_donor/", views.t_donor, name="t_donor"),
+    path("P_donor/", views.p_donor, name="p_donor"),
+    path("dashboard/", views.dashboard, name="dashboard"),
+    path("add_uplift/", views.add_uplift, name="add_uplift"),
+    # t_receiver urls
+    path("t_receiver/", views.t_receiver, name="t_receiver"),
+    path("p_receiver/", views.p_receiver, name="p_receiver"),
+    path("friends/", views.friends, name="friends"),
+    path("about/", views.about, name="about"),
 ]
 
 if settings.DEBUG:

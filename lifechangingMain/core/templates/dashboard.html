@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+</head>
+
+<body>
+
+    <main>
+        <div class="card-container">
+            <section class="user-history" style="background-color: #164b47;">
+                <h2>Your Donation History</h2>
+                <ul>
+                    {% for donation in donations %}
+                    <li>{{ donation.date }} - {{ donation.amount }} - {{ donation.purpose }}</li>
+                    {% empty %}
+                    <li>No donations found.</li>
+                    {% endfor %}
+                </ul>
+            </section>
+
+            <section class="user-history" style="background-color: #145b54;">
+                <h2>Page Views</h2>
+                <p>Number of views: {{ page_views }}</p>
+                
+            </section>
+
+            <section class="user-history" style="background-color: #147168;" >
+                <h2>Your Previous Uplifts</h2>
+                <ul>
+                    {% for uplift in uplifts %}
+                    <li>{{ uplift.title }} - {{ uplift.description }}</li>
+                    {% empty %}
+                    <li>No uplifts found.</li>
+                    {% endfor %}
+                </ul>
+            </section>
+        </div>
+
+        <section class="add-uplift">
+            <h2>Add a New Uplift</h2>
+            <form method="post" action="{% url 'add_uplift' %}">
+                {% csrf_token %}
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea>
+
+                <button type="submit">Add Uplift</button>
+            </form>
+        </section>
+
+        <!-- <section class="image-section">
+            <h2>Featured Image</h2>
+            <img src="{% static 'images/feature-image.jpg' %}" alt="Featured">
+        </section> -->
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Example JavaScript for enhancing the page
+            console.log('Dashboard page loaded');
+        });
+    </script>
+</body>
+
+</html>
+
+{% endblock %}
