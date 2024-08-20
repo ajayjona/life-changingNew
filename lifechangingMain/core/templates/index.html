@@ -6,8 +6,8 @@
         <div
             style="
                 padding-left: 50px;
-                display: grid;
-                grid-template-rows: 2fr 4fr 2fr;
+                 display: grid;
+                grid-template-rows: 2fr 4fr 4fr 2fr;
             "
         >
             <div style="grid-row: 2">
@@ -38,9 +38,28 @@
                             <a href="/p_receiver">As a group</a>
                         </div>
                     </div>
+                    
                 </div>
             </div>
+           
+            <div style="grid-row: 3;"><br><br>
+                    <p style="font-size: 15px; background-color: rgba(255, 255, 255, 0.8);">
+                        <b>Do you have an item uploaded already? Track progress</b>
+                    </p>
+                    <form class="track_form" action="POST" style="text-align: center; padding-bottom: 10px" >
+                        <div style="display: grid; grid-template-columns: 1fr 1fr;">
+                            <input style=" display: inline-block; margin-bottom: 10px; height: 25px; width: 95%; box-shadow: 2px 5px 10px #d3d3d3; border: 2px solid rgb(20, 138, 122);" placeholder="Username" />
+                            <input style="display: inline-block; margin-bottom: 10px; height: 25px; width: 95%; box-shadow: 2px 5px 10px #d3d3d3; border: 2px solid rgb(20, 138, 122);" placeholder="Code"/>
+                        </div>
+                        
+                        <button class="submit_button" style="text-align: center; width: 100%;" type="submit"> <a href="/dashboard">Submit</a></button>
+                   
+                    </form>
+                </div>
+            
         </div>
+
+        
     </div>
 
     <div>
@@ -109,7 +128,7 @@
                     grid-template-rows: 8fr 1fr;
                 "
             >
-                <div
+                <!-- <div
                     style="
                         background-color: rgba(255, 255, 255, 0.7);
                         border-radius: 15px;
@@ -163,7 +182,7 @@
                             Submit
                         </button>
                     </form>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
