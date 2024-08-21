@@ -46,8 +46,16 @@
         </div>
 
         <section class="add-uplift">
-            <h2>Add a New Uplift</h2>
-            <form method="post" action="{% url 'add_uplift' %}">
+            <div style="display: flex;
+                    justify-content: space-between;">
+                <h2>Contributions</h2>
+                <p style="color:blue">Add a contribution</p>
+            </div>
+            <img src="" alt="">
+            <p>Food, Rice. </p>
+            <p>views|12 days ago|messages</p>
+            
+            <!-- <form method="post" action="{% url 'add_uplift' %}">
                 {% csrf_token %}
                 <label for="title">Title:</label>
                 <input type="text" id="title" name="title" required>
@@ -56,7 +64,26 @@
                 <textarea id="description" name="description" required></textarea>
 
                 <button type="submit">Add Uplift</button>
-            </form>
+            </form> -->
+        </section>
+        <br><br>
+        <section class="add-uplift">
+            <div style="display: flex;
+            justify-content: space-between;">
+        <h2>Needs</h2>
+        <p style="color:blue">Seek Assistance</p>
+        </div>
+            
+            <!-- <form method="post" action="{% url 'add_uplift' %}">
+                {% csrf_token %}
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea>
+
+                <button type="submit">Add</button>
+            </form> -->
         </section>
 
         <!-- <section class="image-section">
