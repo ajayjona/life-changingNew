@@ -127,70 +127,15 @@ header {
 
 
 /* this is css designated for footer */
+
 footer {
-    width: 100%;
-    margin-bottom: 0;
-    background-color: white;
-    display: flex;
-}
-
-.footer-section1 {
-    margin-left: 50px;
-}
-
-.footer-section2 h3 {
-    margin-top: 50px;
-}
-
-.footer-section2 {
-    margin-left: 30px;
-    margin-right: 30px;
-}
-
-.footer-section2-list {
-    list-style: none;
-    float: right;
-}
-
-.footer-section2-list a {
-    display: block;
-    text-decoration: none;
-    color: grey;
-    margin-bottom: 10px;
-}
-
-.footer-section3 {
-    display: block;
-}
-
-.footer-bottom {
-    width: 100%;
-    margin-bottom: 0;
-    background-color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* Vertically centers items */
-    position: relative;
-}
-
-.footer-bottom p {
-    margin-bottom: 0;
-    float: left;
-}
-
-.footer-botom-links {
-    position: fixed;
-    right: 0;
-}
-
-i {
-    padding-right: 10px;
-}
-
-.footer-links {
-    text-align: center;
-}
+    background-color: #f8f9fa;
+    padding: 10px 0;
+    border-top: 1px solid #dee2e6;
+    text-align: center; 
+    font-family: Arial, sans-serif;
+    color: #6c757d;
+}                               
 
 /* end of css designated for footer */
 .form-wrapper {

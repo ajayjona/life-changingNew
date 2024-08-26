@@ -123,73 +123,50 @@
         {% block content %} {% endblock %}
 
         <br />
+        <hr/>
+
         <footer>
-            <div class="footer-section1">
-                <div class="footer-img1">
-                    <img src="{% static "images/Ellipse_15.jpg" %}" alt="logo"
-                    height="100px" width="100px">
+                  
+            <footer >
+                <div class="footer-bottom">
+                    <!-- Logo Section -->
+                    <div style="margin-bottom: 10px;">
+                        <a href="#">
+                            <img src="{% static 'images/Logopit_new.png' %}" style="width: 50px; margin-bottom: 5px;" alt="uplift_logo" />
+                        </a>
+                    </div>
+            
+                    <!-- Social Media Icons -->
+                    <div class="footer-bottom-links" style="display: flex; justify-content: center; gap: 10px; margin-bottom: 10px;">
+                        <a href="#"><i class="fa-brands fa-facebook-f fa-sm" style="color: #333333;"></i></a>
+                        <a href="#"><i class="fa-brands fa-x fa-sm" style="color: #333333;"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram fa-sm" style="color: #333333;"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube fa-sm" style="color: #333333;"></i></a>
+                    </div>
+            
+                    <!-- App Store Icons -->
+                    <div style="margin-bottom: 15px;">
+                        <a href="#"><i class="fa-brands fa-google-play fa-sm" style="color: #333333;"></i></a>
+                        <a href="#"><i class="fa-brands fa-app-store-ios fa-sm" style="color: #333333;"></i></a>
+                    </div>
+            
+                    <!-- Legal Links -->
+                    <div style="font-size: 12px;">
+                        <p style="margin: 3px 0;">&copy; 2024 UPLIFT</p>
+                        <p style="margin: 3px 0;">
+                            <a href="#" style="color: rgb(20, 138, 122); text-decoration: none; margin: 0 6px;">Terms</a>
+                            <a href="#" style="color: rgb(20, 138, 122); text-decoration: none; margin: 0 6px;">Accessibility Statement</a>
+                            <a href="#" style="color: rgb(20, 138, 122); text-decoration: none; margin: 0 6px;">Cookie Policy</a>
+                            <a href="#" style="color: rgb(20, 138, 122); text-decoration: none; margin: 0 6px;">Privacy Choices</a>
+                        </p>
+                    </div>
                 </div>
-                <p>
-                    Welcome to uplift, a platform for donation<br />
-                    hegfuygfuyregfuyguygeyfugeurgfuygfuyegfuy<br />
-                    frbhjebfjhbfhjefbjhbejhbfjbjebjebjrjrj<br />
-                    bfjebjhbejehjhejeje<br />
-                </p>
-            </div>
-            <div class="footer-section2">
-                <h3>Fundraising</h3>
-                <ul class="footer-section2-list">
-                    <a href="">
-                        <i class="fa-solid fa-arrow-right"></i>Lorem
-                    </a>
-                    <a href="">
-                        <i class="fa-solid fa-arrow-right"></i>Lorem
-                    </a>
-                    <a href="">
-                        <i class="fa-solid fa-arrow-right"></i>Lorem
-                    </a>
-                    <a href="">
-                        <i class="fa-solid fa-arrow-right"></i>Lorem
-                    </a>
-                </ul>
-            </div>
-            <div class="footer-section2">
-                <h3>More</h3>
-                <ul class="footer-section2-list">
-                    <a href="">
-                        <i class="fa-solid fa-arrow-right"></i>Lorem
-                    </a>
-                    <a href="">
-                        <i class="fa-solid fa-arrow-right"></i>Lorem
-                    </a>
-                    <a href="">
-                        <i class="fa-solid fa-arrow-right"></i>Lorem
-                    </a>
-                    <a href="">
-                        <i class="fa-solid fa-arrow-right"></i>Lorem
-                    </a>
-                </ul>
-            </div>
+            </footer>
+   
         </footer>
-        <hr />
-        <div class="footer-bottom">
-            <p>�� 2023 uplift. All rights reserved.</p>
-            <div class="footer-bottom-links">
-                <div class="footer-links">
-                    <i class="fa-brands fa-facebook fa-2x"></i>
-                    <i class="fa-brands fa-twitter fa-2x"></i>
-                    <i class="fa-brands fa-square-instagram fa-2x"></i>
-                    <i class="fa-brands fa-youtube fa-2x"></i>
-                </div>
-                <br />
-                <div class="footer-apps">
-                    <img src="{% static "images/googleplay.jpg" %}" alt="logo"
-                    height="80px" width="250px"> <img src="{% static
-                    "images/app-store-logo.png" %}" alt="logo" height="80px"
-                    width="250px">
-                </div>
-            </div>
-        </div>
+
+
+       
         <script
             src="https://kit.fontawesome.com/950b207f71.js"
             crossorigin="anonymous"
