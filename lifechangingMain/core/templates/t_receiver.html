@@ -59,6 +59,17 @@
                           <label for="photo">Upload item photo:</label>
                         </div>
                     </div>
+                    <p style='text-align: center;'>How do you want to receive your notifications ?</p>
+                    <div class="form-row2">
+                      <div class="form-group2">
+                        <input type="checkbox" id="emailCheckbox" name="tr_emailcheckbox" value="Bike">
+                        <label for="emailCheckbox">Email</label>
+                      </div>
+                      <div class="form-group2 input-container">
+                        <input type="checkbox" id="contactCheckbox" name="tr_contactcheckbox" value="Bike">
+                        <label for="contactCheckbox">Contact</label>
+                      </div>
+                    </div>
                     <div class="form-row">
                         <div class="form-group">
                           <textarea name="text" id="describe" name="tr_description" placeholder=" " ></textarea>
@@ -71,5 +82,31 @@
                 </form>
             </div>
         </div>
+        <script>
+          function toggleCheckbox(inputId, checkboxId) {
+            const inputField = document.getElementById(inputId);
+            const checkbox = document.getElementById(checkboxId);
+      
+            checkbox.disabled = inputField.value.trim() === '';
+          }
+        
+          document.addEventListener('DOMContentLoaded', function() {
+            // List of input and checkbox pairs
+            const pairs = [
+              { inputId: 'email', checkboxId: 'emailCheckbox' },
+              { inputId: 'contact', checkboxId: 'contactCheckbox' }
+            ];
+      
+            pairs.forEach(pair => {
+              // Initial check when the page loads
+              toggleCheckbox(pair.inputId, pair.checkboxId);
+      
+              // Add event listeners for real-time validation
+              document.getElementById(pair.inputId).addEventListener('input', function() {
+                toggleCheckbox(pair.inputId, pair.checkboxId);
+              });
+            });
+          });
+        </script>
 {% endblock %}
 

@@ -28,6 +28,8 @@ class P_donor(models.Model):
     D_contact = models.IntegerField( blank=True, null=True)
     D_description = models.CharField(max_length=600, blank=True, null=True)
     D_date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    D_contactcheckbox = models.BooleanField(default=False)
+    D_emailcheckbox = models.BooleanField(default=False)
 
     def __str__(self):
         return self.D_name
@@ -52,7 +54,8 @@ class P_receiver(models.Model):
     R_description = models.CharField(max_length=600, blank=True, null=True)
     R_location = models.CharField(max_length=100, blank=True, null=True)
     R_date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
-
+    R_contactcheckbox = models.BooleanField(default=False)
+    R_emailcheckbox = models.BooleanField(default=False)
     def __str__(self):
         return self.R_name
 
@@ -83,6 +86,8 @@ class T_donor(models.Model):
     td_photo_logo = models.ImageField(upload_to='images/',blank=True, null=True)
     td_description = models.TextField( blank=True, null=True)
     td_date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    td_contactcheckbox = models.BooleanField(default=False)
+    td_emailcheckbox = models.BooleanField(default=False)
 
     def __str__(self):
         return self.td_name
