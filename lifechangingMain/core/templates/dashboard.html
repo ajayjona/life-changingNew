@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+</head>
+
+<body>
+
+    <main>
+        <div class="card-container">
+            <section class="user-history" style="background-color: #2a9d8f;">
+                <h2>Your Donation History</h2>
+                <ul>
+                    {% for donation in donations %}
+                    <li>{{ donation.date }} - {{ donation.amount }} - {{ donation.purpose }}</li>
+                    {% empty %}
+                    <li>No donations found.</li>
+                    {% endfor %}
+                </ul>
+            </section>
+
+            <section class="user-history" style="background-color: #2a9d8f;">
+                <h2>Page Views</h2>
+                <p>Number of views: {{ page_views }}</p>
+                
+            </section>
+
+            <section class="user-history" style="background-color: #2a9d8f;" >
+                <h2>Your Previous Uplifts</h2>
+                <ul>
+                    {% for uplift in uplifts %}
+                    <li>{{ uplift.title }} - {{ uplift.description }}</li>
+                    {% empty %}
+                    <li>No uplifts found.</li>
+                    {% endfor %}
+                </ul>
+            </section>
+        </div>
+
+        <section class="add-uplift">
+            <div style="display: flex;
+                    justify-content: space-between;">
+                <h2>Contributions</h2>
+                
+                <div class="dropdown">
+                        <button class="contribution_button">
+                            <b>Add a contribution</b>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="/T_donor">As an individual</a>
+                            <a href="/P_donor">As a group</a>
+                        </div>
+                    </div> 
+            </div>
+            <img src="" alt="">
+            <p>Food, Rice. </p>
+            <p>views|15 days ago|messages</p>
+            
+            <!-- <form method="post" action="{% url 'add_uplift' %}">
+                {% csrf_token %}
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea>
+
+                <button type="submit">Add Uplift</button>
+            </form> -->
+        </section>
+        <br><br>
+        <section class="add-uplift">
+            <div style="display: flex;
+            justify-content: space-between;">
+        <h2>Needs</h2>
+            <div class="dropdown">
+            <button class="assistance_button">
+                <b>Seek Assistance</b>
+            </button>
+            <div class="dropdown-content">
+                <a href="/t_receiver">As an individual</a>
+
+                <a href="/p_receiver">As a group</a>
+            </div>
+        </div>
+        </div>
+            
+            <!-- <form method="post" action="{% url 'add_uplift' %}">
+                {% csrf_token %}
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea>
+
+                <button type="submit">Add</button>
+            </form> -->
+        </section>
+
+        <!-- <section class="image-section">
+            <h2>Featured Image</h2>
+            <img src="{% static 'images/feature-image.jpg' %}" alt="Featured">
+        </section> -->
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Example JavaScript for enhancing the page
+            console.log('Dashboard page loaded');
+        });
+    </script>
+</body>
+
+</html>
+
+{% endblock %}
