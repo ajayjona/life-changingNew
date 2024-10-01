@@ -16,7 +16,7 @@
 
     <main>
         <div class="card-container">
-            <section class="user-history" style="background-color: #164b47;">
+            <section class="user-history" style="background-color: #2a9d8f;">
                 <h2>Your Donation History</h2>
                 <ul>
                     {% for donation in donations %}
@@ -27,13 +27,13 @@
                 </ul>
             </section>
 
-            <section class="user-history" style="background-color: #145b54;">
+            <section class="user-history" style="background-color: #2a9d8f;">
                 <h2>Page Views</h2>
                 <p>Number of views: {{ page_views }}</p>
                 
             </section>
 
-            <section class="user-history" style="background-color: #147168;" >
+            <section class="user-history" style="background-color: #2a9d8f;" >
                 <h2>Your Previous Uplifts</h2>
                 <ul>
                     {% for uplift in uplifts %}
@@ -49,11 +49,20 @@
             <div style="display: flex;
                     justify-content: space-between;">
                 <h2>Contributions</h2>
-                <p style="color:blue">Add a contribution</p>
+                
+                <div class="dropdown">
+                        <button class="contribution_button">
+                            <b>Add a contribution</b>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="/T_donor">As an individual</a>
+                            <a href="/P_donor">As a group</a>
+                        </div>
+                    </div> 
             </div>
             <img src="" alt="">
             <p>Food, Rice. </p>
-            <p>views|12 days ago|messages</p>
+            <p>views|15 days ago|messages</p>
             
             <!-- <form method="post" action="{% url 'add_uplift' %}">
                 {% csrf_token %}
@@ -71,7 +80,16 @@
             <div style="display: flex;
             justify-content: space-between;">
         <h2>Needs</h2>
-        <p style="color:blue">Seek Assistance</p>
+            <div class="dropdown">
+            <button class="assistance_button">
+                <b>Seek Assistance</b>
+            </button>
+            <div class="dropdown-content">
+                <a href="/t_receiver">As an individual</a>
+
+                <a href="/p_receiver">As a group</a>
+            </div>
+        </div>
         </div>
             
             <!-- <form method="post" action="{% url 'add_uplift' %}">

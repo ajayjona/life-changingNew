@@ -44,7 +44,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-4 my-3">
+        {% comment %} <div class="col-md-4 my-3">
             <div class="card" style="width: 18rem">
                 <img
                     src="{% static 'images/me.png' %}"
@@ -64,7 +64,7 @@
                         data-bs-target="#example5Modal"
                         >Read More</a
                     >
-                    {% comment %} Modal {% endcomment %}
+                    
                     <div
                         class="modal fade"
                         id="example5Modal"
@@ -92,6 +92,7 @@
                                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat quisquam beatae veritatis reiciendis! Inventore recusandae ut esse atque. Voluptate in non quaerat labore laboriosam enim odio ratione deserunt recusandae maxime!
                                         </span>
                                     </p>
+                                    
                                 </div>
                                 <div class="modal-footer">
                                     <button
@@ -107,8 +108,70 @@
                     </div>
                 </div>
             </div>
+        </div> {% endcomment %}
+        <div class="col-md-4 my-3">
+            <div class="card" style="width: 18rem">
+                <img
+                src="{% static 'images/me.png' %}"
+                class="card-img-top"
+                alt="..."
+            />
+                <div class="card-body">
+                    <h5 class="card-title">Contributor 1</h5>
+                    <p class="card-text">
+                        <strong>John Doe</strong> has been instrumental in supporting families through the Uplift Project by providing essential aid and resources to those in need. His generosity has touched many lives.
+                    </p>
+                    <a
+                        href="#"
+                        class="btn btn-primary"
+                        data-bs-toggle="modal"
+                        data-bs-target="#example5Modal"
+                        >Read More</a
+                    >
+        
+                    <!-- Modal -->
+                    <div
+                        class="modal fade"
+                        id="example5Modal"
+                        tabindex="-1"
+                        aria-labelledby="exampleModalLabel"
+                        aria-hidden="true"
+                    >
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">More About John Doe</h5>
+                                    <button
+                                        type="button"
+                                        class="btn-close"
+                                        data-bs-dismiss="modal"
+                                        aria-label="Close"
+                                    ></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>
+                                        John Doe has been a valued contributor to the Uplift Project. Over the past year, he has provided crucial financial support and donated supplies to help ensure that underprivileged families have access to food, shelter, and education. His commitment has been a beacon of hope for those in need, and his impact continues to inspire others to join the cause.
+                                    </p>
+                                    <p>
+                                        As one of the first donors to step forward, John has helped uplift over 50 families, providing them with opportunities to rebuild their lives and thrive. His contributions have directly funded shelter programs and educational initiatives for children, offering them a better future.
+                                    </p>
+        
+                                    <!-- Text area form -->
+                                    <form method="POST" action="">
+                                        <div class="mb-3">
+                                            <label for="message" class="form-label">Send a Thank You Message</label>
+                                            <textarea class="form-control" id="message" name="message" rows="3" placeholder="Write your message here..."></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
+        
         <div class="col-md-4 my-3">
             <div class="card" style="width: 18rem">
                 <img
