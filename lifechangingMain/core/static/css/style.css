@@ -231,7 +231,23 @@ textarea {
 .form-group input[type="submit"]:hover {
     background-color: rgb(20, 138, 122);
 }
+.form-row2 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
 
+.form-row2 .form-group2 {
+    flex: 1;
+    margin-right: 20px;
+    position: relative;
+    /* Position relative for label positioning */
+}
+
+.form-row2 .form-grou2p:last-child {
+    margin-right: 0;
+}
 /*label{
     display: block;
     color: #f0f8ff;
