@@ -1,103 +1,191 @@
-{% load static %}
-<!Doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>UPLIFT demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static "css/style.css" %}">
-  </head>
-  <body>
-    <header>
-        <div class="logo">
-          <img src="{% static "images/Ellipse_15.jpg" %}" alt="logo" height="40px">
-        </div>
-        <ul class="navli">
-          <li><a href="">Friends in need</a></li>
-          <li><a href="#">Contributors</a></li>
-          <li><a href="#">Status</a></li>
-          <li>
-            <a href="">
-                How it works
-            </a>
-            <ul>
-                <li><a href="">About</a></li>
-                <li><a href="">Success stories</a></li>
-                <li><a href="">Ranks</a></li>
-            </ul>
-        </li>
-        </ul>
-    </header>
-    
-    <br>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4" style="background-color: rgb(224,23,23); color: aliceblue;">
-                <br>
-                <p style="text-align: center; color: white;">Would you like to declare your<br>
-                    contribution, declare your need for<br>
-                    something or both ?
-                 </p>
-                <div class="logom">
-                    <img src="{% static "images/Ellipse_15.jpg" %}" alt="logo">
-                </div>
-                <br>
-                <p style="text-align: center;">Making Hope Tangible</p>
-            </div>
-            <div class="col-md-8" style="background-color: white;">
-                <br>
-                <div class="links">
-                    <button type="submit" class="donate">
-                       <h3 style="text-align: center;">GET CODE</h3> 
-                       <hr>
-                       <p style="text-align: center;">To declare your<br>
-                        contribution
-                       </p>
-                    </button>
-                    <button type="submit" class="give">
-                        <h3 style="text-align: center;">GET CODE</h3> 
-                        <hr>
-                        <p style="text-align: center;">To declare your<br>
-                         need for something
-                        </p>
-                    </button>
-                    <br><br>
-                </div>
-                <div class="landform-container">
-                    <form method="post" class="landform">
-                        <input type="text" placeholder="Username" name="username">
-                        <input type="number" placeholder="Code" name="code">
-                        <br>
-                        <div class="button-container">
-                        <button type="submit" name="landbutton" class="landbutton" >Submit</button>
+{% extends 'base.html' %} {% load static %} {% block content %}
+<br />
+<br />
+<div class="landing_general">
+    <div style="grid-column: 2">
+        <div
+            style="
+                padding-left: 50px;
+                 display: grid;
+                grid-template-rows: 2fr 4fr 4fr 2fr;
+            "
+        >
+            <div style="grid-row: 2">
+                <p style="color: rgb(20, 138, 122); font-size: 30px">
+                    <b>Making Hope Tangible</b>
+                </p>
+                <p style="font-size: 16px; font-family: sans-serif">
+                    Are you looking to contribute to society by sharing
+                    something or perhaps in need of assistance?
+                </p>
+                <div style="display: flex">
+                    <div class="dropdown">
+                        <button class="contribution_button">
+                            <b>CONTRIBUTE</b>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="/T_donor">As an individual</a>
+                            <a href="/P_donor">As a group</a>
                         </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="assistance_button">
+                            <b>ASSISTANCE</b>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="/t_receiver">As an individual</a>
+
+                            <a href="/p_receiver">As a group</a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+           
+            <div style="grid-row: 3;"><br><br>
+                    <p style="font-size: 15px; background-color: rgba(255, 255, 255, 0.8);">
+                        <b>Do you have an item uploaded already? Track progress</b>
+                    </p>
+                    <form class="track_form" action="POST" style="text-align: center; padding-bottom: 10px" >
+                        <div style="display: grid; grid-template-columns: 1fr 1fr;">
+                            <input style=" display: inline-block; margin-bottom: 10px; height: 25px; width: 95%; box-shadow: 2px 5px 10px #d3d3d3; border: 2px solid rgb(20, 138, 122);" placeholder="Username" />
+                            <input style="display: inline-block; margin-bottom: 10px; height: 25px; width: 95%; box-shadow: 2px 5px 10px #d3d3d3; border: 2px solid rgb(20, 138, 122);" placeholder="Code"/>
+                        </div>
+                        
+                        <button class="submit_button" style="text-align: center; width: 100%;" type="submit"> <a href="/dashboard">Submit</a></button>
+                   
                     </form>
                 </div>
-            </div>
+            
         </div>
-        <br>
+
+        
     </div>
-    <footer>
-        <div class="footer-info">
-            <div class="footer-contact">
-                <p>Contact us on:</p>
-                <span><i class="fas fa-phone"></i>&nbsp;256-45646-3544</span>
-                <span><i class="fas fa-envelope"></i>&nbsp; info uplift@gmail.com</span>
-            </div>
-            <div class="footer-visit">
-                <p>Visit us on:</p>
-                <a href=""><span><i class="fab fa-facebook-square"></i>&nbsp;Facebook</span></a>
-                <a href=""><span><i class="fab fa-twitter-square"></i>&nbsp;Twitter</span></a>
-                <a href=""><span><i class="fab fa-instagram-square"></i>&nbsp;Instagram</span></a>
+
+    <div>
+        <div style="text-align: center; position: relative; padding: 5px">
+            <svg
+                viewBox="0 0 900 600"
+                preserveAspectRatio="none"
+                style="position: absolute; top: 0; left: 0; width: 100%"
+            >
+                <path
+                    fill="#D0FFD0"
+                    fill-opacity="0.7"
+                    d="M 50 250 A 50 50 0 1 1 200 50 C 250 100 300 100 350 0 C 500 0 500 100 500 100 C 550 150 550 50 650 0 A 50 50 0 1 1 700 200 C 650 250 700 250 750 300 A 50 50 0 1 1 400 500 C 350 450 350 500 300 550 A 50 50 0 1 1 50 300 C 50 300 100 300 50 250"
+                ></path>
+            </svg>
+
+            <svg
+                viewBox="0 0 800 600"
+                preserveAspectRatio="none"
+                style="position: absolute; top: 0; left: 0; width: 100%"
+            >
+                <path
+                    fill="rgb(20, 138, 122)"
+                    fill-opacity="1"
+                    d="M 600 400 C 600 350 700 400 750 350 C 750 350 800 350 750 400 C 650 450 600 400 600 400 "
+                ></path>
+            </svg>
+
+            <!--  <svg viewBox="0 0 800 600" preserveAspectRatio="none" style="position: absolute; top: 0; left: 0; width: 100%;">
+                <path fill="rgb(20, 138, 122)" fill-opacity="0.7" d="M 350 400 C 350 350 450 450 400 400 C 450 450 450 400 450 450 C 400 400 400 500 350 400   "></path>
+            </svg>  -->
+
+            <img
+                src="{% static 'images/cloth sharing.png' %}"
+                style="
+                    position: absolute;
+                    width: 100%;
+                    height: 400px;
+                    max-width: 100%;
+                    display: block;
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                "
+            />
+
+            <!--  <svg viewBox="0 0 800 600" preserveAspectRatio="none" style="position: absolute; top: 0; left: 0; width: 100%;">
+                <path fill="rgb(20, 138, 122)" fill-opacity="0.5" d="M 50 400 C 0 400 50 350 150 350 C 200 350 250 400 150 400 C 100 400 150 400 50 400   "></path>
+            </svg>  -->
+
+            <!--  <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script><dotlottie-player src="https://lottie.host/2967c70c-c180-4cb0-b2bb-0a1cdb66412f/VXGle6Lt8d.json" background="transparent" speed="1" style="width: 100%; height: 300px; position: absolute;" direction="1" playMode="normal" loop autoplay></dotlottie-player>
+          -->
+
+            <div
+                style="
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, 50%);
+                    z-index: 1;
+                    width: 37%;
+                    text-align: center;
+                    margin: solid 2px white;
+                    padding-right: 7%;
+                    display: grid;
+                    grid-template-rows: 8fr 1fr;
+                "
+            >
+                <!-- <div
+                    style="
+                        background-color: rgba(255, 255, 255, 0.7);
+                        border-radius: 15px;
+                        border: solid 2px white;
+                        box-shadow: 2px 5px 10px #d3d3d3;
+                    "
+                >
+                    <p
+                        style="
+                            font-size: 15px;
+                            background-color: rgba(255, 255, 255, 0.8);
+                        "
+                    >
+                        <b
+                            >Do you have an item uploaded already? Track
+                            progress</b
+                        >
+                    </p>
+                    <form
+                        class="track_form"
+                        action="POST"
+                        style="text-align: center; padding-bottom: 10px"
+                    >
+                        <input
+                            style="
+                                display: inline-block;
+                                margin-bottom: 10px;
+                                height: 25px;
+                                width: 80%;
+                                box-shadow: 2px 5px 10px #d3d3d3;
+                                border: 2px solid rgb(20, 138, 122);
+                            "
+                            placeholder="Username"
+                        />
+                        <input
+                            style="
+                                display: inline-block;
+                                margin-bottom: 10px;
+                                height: 25px;
+                                width: 80%;
+                                box-shadow: 2px 5px 10px #d3d3d3;
+                                border: 2px solid rgb(20, 138, 122);
+                            "
+                            placeholder="Code"
+                        />
+                        <button
+                            class="submit_button"
+                            style="text-align: center"
+                            type="submit"
+                        >
+                            Submit
+                        </button>
+                    </form>
+                </div> -->
             </div>
         </div>
-        <hr class="line-for-footer">
-        <div class="footer-bottom">
-            | &copy; GAME CHANGERS / UPLIFT
-        </div>
-    </footer>
-    <script src="https://kit.fontawesome.com/950b207f71.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </body>
-</html>
+    </div>
+</div>
+<br />
+{% endblock %}

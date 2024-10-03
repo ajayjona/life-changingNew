@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <br>
+        <div class="form-wrapper">
+          <p style="text-align: center; grid-column: 2;">Register here and receive a tracking code</p>
+            <div class="form-container">
+                <form method="POST" action="/T_donor/"  enctype="multipart/form-data">
+                  {% csrf_token %}
+                  {% if form.errors %}
+                  <ul>
+                    {% for field, errors in form.errors.items %}
+                      {% for error in errors %}
+                        <li style="color: red;">{{ field }}: {{ error }}</li>
+                      {% endfor %}
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+                    <div class="form-row">
+                        <div class="form-group">
+                          <input type="text" id="name" name="td_name" placeholder=" " required>
+                          <label for="name">Username:</label>
+                        </div>
+                        <div class="form-group">
+                          <input type="tel" id="contact" name="td_contact" placeholder=" " required>
+                          <label for="contact">Contact:</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                          <input type="email" id="email" name="td_email" placeholder=" ">
+                          <label for="email">Email for notifications(optional):</label>
+                        </div>
+                        <div class="form-group input-container">
+                          <input type="text" id="location" name="td_location" placeholder=" " required>
+                          <label for="location">Location:</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <select name="td_item" id="item_cat" required>
+                                <option value="" disabled selected>--Select Item Category--</option>
+                                <option value="money">Money</option>
+                                <option value="clothes">Clothes</option>
+                                <option value="food items">Food</option>
+                                <option value="others">Others</option>
+                            </select>
+                            <label for="item_cat">Select Item Category</label>
+                        </div>
+                        <div class="form-group">
+                          <input type="text" id="item_name" name="td_item_name" placeholder=" " required>
+                          <label for="item_name">Item name:</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                          <input type="file" id="photo" name="td_photo_logo" placeholder=" "  accept="image/*" style="border: 2px solid rgb(20, 138, 122);" required>
+                          <label for="photo">Upload item photo:</label>
+                        </div>
+                    </div>
+                    <p style='text-align: center;'>How do you want to receive your notifications ?</p>
+                    <div class="form-row2">
+                      <div class="form-group2">
+                        <input type="checkbox" id="emailCheckbox" name="td_emailcheckbox" value="Bike">
+                        <label for="emailCheckbox">Email</label>
+                      </div>
+                      <div class="form-group2 input-container">
+                        <input type="checkbox" id="contactCheckbox" name="td_contactcheckbox" value="Bike">
+                        <label for="contactCheckbox">Contact</label>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                          <textarea name="text" id="describe" name="td_description" placeholder=" " required></textarea>
+                          <label for="describe">Description:</label>
+                        </div>
+                    </div>
+                    <div class="form-group" style=" display: flex; justify-content: center;">
+                        <input type="submit" value="Submit" style="border: solid 2px  rgb(20, 138, 122);">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script>
+          function toggleCheckbox(inputId, checkboxId) {
+            const inputField = document.getElementById(inputId);
+            const checkbox = document.getElementById(checkboxId);
+      
+            checkbox.disabled = inputField.value.trim() === '';
+          }
+        
+          document.addEventListener('DOMContentLoaded', function() {
+            // List of input and checkbox pairs
+            const pairs = [
+              { inputId: 'email', checkboxId: 'emailCheckbox' },
+              { inputId: 'contact', checkboxId: 'contactCheckbox' }
+            ];
+      
+            pairs.forEach(pair => {
+              // Initial check when the page loads
+              toggleCheckbox(pair.inputId, pair.checkboxId);
+      
+              // Add event listeners for real-time validation
+              document.getElementById(pair.inputId).addEventListener('input', function() {
+                toggleCheckbox(pair.inputId, pair.checkboxId);
+              });
+            });
+          });
+        </script>
+{% endblock %}

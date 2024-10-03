@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <br>
+        <div class="form-wrapper">
+          <p style="text-align: center; grid-column: 2;">Register here and receive a tracking code</p>
+            <div class="form-container">
+                <form method="POST" action="/p_receiver/"  enctype="multipart/form-data">
+                  {% csrf_token %}
+                  {% if p_receiverform.errors %}
+                  <ul>
+                    {% for field, errors in p_receiverform.errors.items %}
+                      {% for error in errors %}
+                        <li style="color: red;">{{ field }}: {{ error }}</li>
+                      {% endfor %}
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+                    <div class="form-row">
+                        <div class="form-group">
+                          <input type="text" id="username" name="R_name" placeholder=" " required>
+                          <label for="username">Company/Group name:</label>
+                        </div>
+                        <div class="form-group">
+                          <input type="tel" id="contact" name="R_contact" placeholder=" " required>
+                          <label for="contact">Contact:</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                          <input type="email" id="email" name="R_email" placeholder=" " required>
+                          <label for="email">Email:</label>
+                        </div>
+                        <div class="form-group input-container">
+                          <input type="text" id="verification" name="R_reginfo" placeholder=" " required>
+                          <label for="verification">Verification details:</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group input-container">
+                          <input type="text" id="location" name="R_location" placeholder=" " requuired>
+                          <label for="location">Location:</label>
+                        </div>
+                        <div class="form-group input-container">
+                          <select name="R_item" id="item_cat">
+                            <option value="" disabled selected>--Select Item Category--</option>
+                            <option value="money">Money</option>
+                            <option value="clothes">Clothes</option>
+                            <option value="food items">Food</option>
+                            <option value="others">Others</option>
+                          </select>
+                          <label for="item_cat">Select Item Category</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                          <input type="text" id="item_name" name="R_item_name" placeholder=" " required>
+                          <label for="item_name">Item name:</label>
+                        </div>
+                        <div class="form-group">
+                          <input type="file" id="image" name="R_photo_logo" placeholder=" " accept="image/*" style="border: solid 2px  rgb(20, 138, 122); background-color: #fff;" required>
+                          <label for="image">Upload item photo:</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <textarea name="R_description" id="describe" name="phone" placeholder=" " required></textarea>
+                            <label for="describe">Description:</label>
+                        </div>
+                    </div>
+                    <div class="form-group" style=" display: flex; justify-content: center;">
+                        <input type="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+{% endblock %}
